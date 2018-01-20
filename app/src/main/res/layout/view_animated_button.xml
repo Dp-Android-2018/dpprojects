@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_animated_button_choose"
+    android:layout_width="@dimen/dp100w"
+    android:layout_height="@dimen/dp40h"
+
+    android:clickable="true"
+    android:elevation="4dp"
+    android:foreground="?selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tv_animated_button_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/action_choose"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp15" />
+
+    <ImageView
+        android:id="@+id/iv_animated_button_logo_check"
+        android:layout_width="@dimen/dp30h"
+        android:layout_height="@dimen/dp40h"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_done"
+        android:visibility="invisible" />
+
+</FrameLayout>
+
+
+

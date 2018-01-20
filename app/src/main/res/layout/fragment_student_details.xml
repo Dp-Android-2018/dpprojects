@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/iv_student_details_photo"
+            android:layout_width="@dimen/dp150w"
+            android:layout_height="@dimen/dp150w"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_temp"
+            app:civ_border_color="@color/colorGray"
+            app:civ_border_width="@dimen/dp5w"
+            app:civ_shadow="true"
+            app:civ_shadow_color="@color/colorGray"
+            app:civ_shadow_radius="5" />
+
+
+        <TextView
+            android:id="@+id/tv_student_details_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5h"
+            android:gravity="center"
+            android:text="Mohamed Atef"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_student_details_class"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="30 Student"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_student_details_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5h"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_calender_off"
+            android:text="10 Points"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorLightBlue"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/ll_student_container"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@color/colorGray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp5h"
+            android:paddingTop="@dimen/dp5h">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10w"
+                android:layout_marginTop="@dimen/dp5h"
+                android:gravity="center"
+                android:text="@string/label_attendance"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_student_details_attendance_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp10w"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_calender_off"
+                android:text="4 Points"
+                android:textColor="@color/colorLightBlue"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/ll_student_container"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@color/colorGray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp2h"
+            android:paddingTop="@dimen/dp2h">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10w"
+                android:layout_marginTop="@dimen/dp5h"
+                android:gravity="center"
+                android:text="@string/label_student_of_day"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_student_details_student_of_day_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp10w"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_calender_off"
+                android:text="2 Points"
+                android:textColor="@color/colorLightBlue"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/ll_student_container"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@color/colorGray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp2h"
+            android:paddingTop="@dimen/dp2h">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10w"
+                android:layout_marginTop="@dimen/dp5h"
+                android:gravity="center"
+                android:text="@string/label_quiz"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_student_details_quiz_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp10w"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_calender_off"
+                android:text="3 Points"
+                android:textColor="@color/colorLightBlue"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/ll_student_container"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@color/colorGray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp2h"
+            android:paddingTop="@dimen/dp2h">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10w"
+                android:layout_marginTop="@dimen/dp5h"
+                android:gravity="center"
+                android:text="@string/label_activities"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_student_details_activities_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp10w"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_calender_off"
+                android:text="1 Points"
+                android:textColor="@color/colorLightBlue"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/ll_student_container"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@color/colorGray" />
+    </LinearLayout>
+</ScrollView>

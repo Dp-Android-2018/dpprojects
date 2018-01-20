@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp70w"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp5w"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/tv_item_month_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="MR" />
+</LinearLayout>

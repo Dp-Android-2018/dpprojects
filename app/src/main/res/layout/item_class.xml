@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_class_class_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp15w"
+        android:layout_marginStart="@dimen/dp15w"
+        android:layout_marginEnd="@dimen/dp15w"
+        android:layout_toStartOf="@+id/iv_class_calender_state"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_class_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Class Name #1"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_class_grade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="First grade"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_class_number_of_students"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="30 Student"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_class_calender_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp5w"
+        android:layout_marginStart="@dimen/dp15w"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_calender_off" />
+
+    <View
+        android:layout_below="@+id/ll_class_class_container"
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorGray"
+        />
+</RelativeLayout>
