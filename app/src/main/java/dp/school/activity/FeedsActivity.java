@@ -48,12 +48,7 @@ public class FeedsActivity extends AppCompatActivity {
         studentsRecycleView.setOnScrollListener(jazzyScrollListener);
         jazzyScrollListener.setTransitionEffect(JazzyHelper.FLIP);
         System.out.println("Ay kalamC:\\Program Files\\Git");
-<<<<<<< HEAD
-        System.out.println("Atef Commit  dfdsfdffdfdasdsa");
-=======
-        System.out.println("Commit Ya Atef okkkklkkk");
-    }
->>>>>>> 1b00409808abe5e068720fcabb288e2ad672f816
+        System.out.println("Atef Commit  teastn");
 
     }
 
