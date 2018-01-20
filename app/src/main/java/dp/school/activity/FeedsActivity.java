@@ -49,6 +49,7 @@ public class FeedsActivity extends AppCompatActivity {
         jazzyScrollListener.setTransitionEffect(JazzyHelper.FLIP);
         System.out.println("Ay kalamC:\\Program Files\\Git");
         System.out.println("Atef Commit  teastn");
+        System.out.println("bAHAA tEST");
 
     }
 
