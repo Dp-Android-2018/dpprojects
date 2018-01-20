@@ -50,6 +50,7 @@ public class FeedsActivity extends AppCompatActivity {
         System.out.println("Ay kalamC:\\Program Files\\Git");
         System.out.println("Atef Commit  teastn");
         System.out.println("bAHAA tEST");
+        System.out.println("bAHAA tESTw22222");
 
     }
 
