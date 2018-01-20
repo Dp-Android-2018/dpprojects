@@ -1,12 +1,12 @@
 package dp.school.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.twotoasters.jazzylistview.JazzyHelper;
-import com.twotoasters.jazzylistview.effects.SlideInEffect;
 import com.twotoasters.jazzylistview.recyclerview.JazzyRecyclerViewScrollListener;
 
 import java.util.ArrayList;
@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.adapter.FeedAdapter;
-import dp.school.adapter.StudentAdapter;
+import dp.school.login.LoginView;
 import dp.school.response.FeedResponse;
-import dp.school.response.StudentResponse;
 
 public class FeedsActivity extends AppCompatActivity {
 
@@ -49,6 +48,5 @@ public class FeedsActivity extends AppCompatActivity {
         jazzyScrollListener.setTransitionEffect(JazzyHelper.FLIP);
         System.out.println("Ay kalamC:\\Program Files\\Git");
     }
-
 
 }
