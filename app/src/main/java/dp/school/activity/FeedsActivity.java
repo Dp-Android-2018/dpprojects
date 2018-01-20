@@ -49,7 +49,7 @@ public class FeedsActivity extends AppCompatActivity {
         studentsRecycleView.setOnScrollListener(jazzyScrollListener);
         jazzyScrollListener.setTransitionEffect(JazzyHelper.FLIP);
         System.out.println("Ay kalamC:\\Program Files\\Git");
-        System.out.println("Commit Ya Atef okkkkkk");
+        System.out.println("Commit Ya Atef okkkklkkk");
     }
 
 
