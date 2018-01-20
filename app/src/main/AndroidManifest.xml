@@ -24,6 +24,13 @@
         <activity android:name=".activity.ParentLoginActivity" />
         <activity android:name=".activity.StudentLoginActivity" />
         <activity android:name=".activity.TeacherLoginActivity" />
+        <activity android:name=".activity.ClassActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.CalenderActivity"
             android:label="@string/title_activity_calender"
@@ -47,11 +54,7 @@
         </activity>
 
         <activity android:name=".activity.FeedsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

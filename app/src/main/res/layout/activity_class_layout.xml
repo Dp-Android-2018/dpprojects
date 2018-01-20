@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_action_bar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60h"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:paddingStart="@dimen/dp10w"
+        android:paddingEnd="@dimen/dp10w"
+        android:id="@+id/rl_class_info">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_class_name"
+            android:text="Class Number One"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/dp3h"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_students_num"
+            android:layout_below="@+id/tv_class_name"
+            android:text="30 Student"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/dp15h"
+            android:layout_marginBottom="@dimen/dp5h"/>
+
+        <Button
+            android:layout_width="@dimen/dp90h"
+            android:layout_height="@dimen/dp30h"
+            android:background="@color/colorLightBlue"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Assignment"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+
+
+   <!-- <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_below="@+id/rl_class_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_marginStart="@dimen/dp25w"
+        android:layout_marginEnd="@dimen/dp25w"
+        android:layoutDirection="ltr"
+
+        android:elevation="@dimen/dp3h"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@android:color/transparent"
+        android:background="@drawable/tablayout_rounded_background"
+        app:tabBackground="@drawable/tab_background"
+        app:tabSelectedTextColor="@color/colorWhite"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabTextColor="@color/colorLightBlue"
+
+
+        />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40h"
+        android:layout_below="@+id/rl_class_info"
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_marginStart="@dimen/dp25w"
+        android:layout_marginEnd="@dimen/dp25w"
+        android:orientation="horizontal"
+        android:background="@drawable/tablayout_rounded_background"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/quizzes"
+            android:layout_gravity="center|center_horizontal"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorLightBlue"
+            android:paddingStart="@dimen/dp10h"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightBlue"
+            android:paddingStart="@dimen/dp10h"
+            android:layout_marginStart="@dimen/dp10h"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/quizzes"
+            android:layout_gravity="center"
+            android:textColor="@color/colorLightBlue"
+            android:paddingStart="@dimen/dp10h"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightBlue"
+            android:paddingStart="@dimen/dp10h"
+            android:layout_marginStart="@dimen/dp10h"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/quizzes"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:textColor="@color/colorLightBlue"
+            android:paddingStart="@dimen/dp10h"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
