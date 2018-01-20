@@ -22,6 +22,7 @@ public class FeedsActivity extends AppCompatActivity {
 
     private JazzyRecyclerViewScrollListener jazzyScrollListener;
     RecyclerView studentsRecycleView;
+    int x=0;
 
 
     private static final String KEY_TRANSITION_EFFECT = "transition_effect";
@@ -48,7 +49,7 @@ public class FeedsActivity extends AppCompatActivity {
         studentsRecycleView.setOnScrollListener(jazzyScrollListener);
         jazzyScrollListener.setTransitionEffect(JazzyHelper.FLIP);
         System.out.println("Ay kalamC:\\Program Files\\Git");
-        System.out.println("Commit Ya Atef");
+        System.out.println("Commit Ya Atef okkkkkk");
     }
 
 
