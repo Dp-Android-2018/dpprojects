@@ -8,6 +8,7 @@ public class DayItem {
    private String day;
    private int date;
 
+
    public DayItem(String day,int date){
       this.day=day;
       this.date=date;
@@ -28,4 +29,6 @@ public class DayItem {
     public void setDate(int date) {
         this.date = date;
     }
+
+
 }

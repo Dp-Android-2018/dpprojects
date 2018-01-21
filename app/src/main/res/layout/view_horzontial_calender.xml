@@ -5,20 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_action_bar" />
-
-<dp.school.base.views.HorizontalCalenderView
-    android:id="@+id/hcv_calender_mycalender"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_calender_schdule"
+        android:id="@+id/rv_calender_months"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="@color/colorPrimary"
         android:scrollbars="vertical" />
 
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_calender_days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
 
 </LinearLayout>

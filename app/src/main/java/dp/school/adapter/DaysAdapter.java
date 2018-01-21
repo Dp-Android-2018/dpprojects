@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import dp.school.R;
+import dp.school.listener.OnDayClickListener;
 import dp.school.model.DayItem;
 
 /**
@@ -22,10 +23,11 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.PlanetViewHold
     ArrayList<DayItem> days;
     private int currentSelected=-1;
     private Context context;
-
-    public DaysAdapter(ArrayList<DayItem> days, Context context) {
+    OnDayClickListener onDayClickListener;
+    public DaysAdapter(Context context ,ArrayList<DayItem> days, OnDayClickListener onDayClickListener) {
         this.days = days;
         this.context=context;
+        this.onDayClickListener=onDayClickListener;
     }
 
     @Override
@@ -53,6 +55,7 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.PlanetViewHold
             @Override
             public void onClick(View view) {
                 currentSelected = position;
+                onDayClickListener.onDayClickListener(position);
                 notifyDataSetChanged();
             }
         });

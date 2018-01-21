@@ -6,6 +6,7 @@ package dp.school.model;
 
 public class MonthItem {
    private String month;
+   private int id;
 
    public MonthItem(String month){
        this.month=month;
@@ -17,5 +18,13 @@ public class MonthItem {
 
     public String getMonth() {
         return month;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }
