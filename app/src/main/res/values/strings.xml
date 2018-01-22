@@ -40,5 +40,7 @@
     <string name="action_download">File download</string>
     <string name="label_assignment_grade">Assignment Grade</string>
     <string name="action_send">Send</string>
-    <string name="tab_new_assignment"></string>
+    <string name="tab_new_assignment">New Assignment</string>
+    <string name="tab_past">Past</string>
+
 </resources>
