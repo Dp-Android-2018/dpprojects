@@ -68,6 +68,7 @@
             android:gravity="center_horizontal"
             android:textColor="@color/colorLightBlue"
             android:paddingStart="@dimen/dp10h"
+
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_weight="1"

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_action_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50h"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:layout_below="@+id/toolbar"
+        android:gravity="center_vertical"
+        android:id="@+id/rl_assigment_data"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/tv_assignment_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Title Assignment "
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlack"
+            android:maxLines="3"
+            android:scrollbars = "vertical"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_weight="3"
+          />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dp5w"
+           >
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_points_num"
+            android:text="50"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_points_text"
+                android:text="@string/point"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/dp5w"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/rl_assigment_data"
+        android:background="@color/colorGray"
+        android:id="@+id/view1"/>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp160h"
+        android:id="@+id/rl_assigment_describtion"
+        android:layout_below="@+id/view1"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:layout_marginTop="@dimen/dp10h">
+        <TextView
+            android:id="@+id/tv_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/describtion"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:id="@+id/tv_description_data"
+            android:layout_below="@+id/tv_description_text"
+            android:layout_marginTop="@dimen/dp5h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars = "vertical"
+            android:maxLines="15"
+            android:text="-22 12:38:02.608 597-8879/? E/FRIGATE_BIRD: Error : Permission error!
+01-22 12:38:02.828 597-7611/? E/FRIGATE_BIRD: Error : Permission error!
+01-22 12:38:02.828 597-7611/? E/FRIGATE_BIRD: Error : Permission error!
+01-22 12:38:02.898 597-8691/? E/FRIGATE_BIRD: Error : Permission error!
+01-22 12:38:02.898 597-8691/? E/FRIGATE_BIRD: Error : Permission error!
+01-22 12:38:02.988 25915-25947/? D/[ACT]:ao: processing priority = HIGH
+01-22 12:38:02.988 25915-25947/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.word/files/aria/offlinestoragehigh.db
+01-22 12:38:02.988 25915-25947/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.word/files/aria/offlinestoragehigh.db
+01-22 12:38:02.988 25915-25947/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.word/files/aria/offlinestoragenormal.db
+01-22 12:38:02.988 25915-25947/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.word/files/aria/offlinestoragelow.db
+01-22 12:38:03.018 597-9056/? E/FRIGATE_BIRD: Error : Permission error!
+01-22 12:38:03.018 597-9056/? E/FRIGATE_BIRD: Error : Permission error!
+01-22 12:38:03.048 25952-25970/? D/[ACT]:ao: processing priority = HIGH
+01-22 12:38:03.048 25952-25970/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.excel/files/aria/offlinestoragehigh.db
+01-22 12:38:03.048 25952-25970/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.excel/files/aria/offlinestoragehigh.db
+01-22 12:38:03.048 25952-25970/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.excel/files/aria/offlinestoragenormal.db
+01-22 12:38:03.048 25952-25970/? W/System.err: stat failed: ENOENT (No such file or directory) : /data/user/0/com.microsoft.office.excel/files/aria/offlinestoragelow.db
+01-22 12:38:03.078 25851-25904/? D/[ACT]:ao: processing priority = HIGH
+01-22 12:38:03.078 25851-25904/? W/System.err: stat failed: ENOENT (No "
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlack"
+
+            android:textSize="10sp"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/rl_assigment_describtion"
+        android:background="@color/colorGray"
+        android:id="@+id/view2"
+        android:layout_marginTop="@dimen/dp10h"/>
+
+    <Button
+        android:layout_width="@dimen/dp100h"
+        android:layout_height="@dimen/dp30h"
+        android:id="@+id/btn_file_download"
+       android:layout_below="@+id/view2"
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_marginBottom="@dimen/dp15h"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_rounded_assignment"
+        android:text="@string/file_download"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/btn_file_download"
+        android:background="@color/colorGray"
+        android:id="@+id/view3"
+       />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp80h"
+        android:id="@+id/rl_upload_assignment"
+        android:layout_below="@+id/view3"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:layout_marginTop="@dimen/dp10h">
+        <TextView
+            android:id="@+id/tv_finish_assignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finish_the_assignment"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:id="@+id/tv_file_upload"
+            android:layout_below="@+id/tv_finish_assignment"
+            android:layout_marginTop="@dimen/dp25h"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/file_upload"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_centerVertical="true"
+
+
+
+            />
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_marginTop="@dimen/dp25h"
+            android:layout_width="@dimen/dp70h"
+            android:layout_height="@dimen/dp20h"
+            android:layout_below="@+id/tv_finish_assignment"
+            android:layout_toEndOf="@+id/tv_file_upload"
+            android:background="@drawable/btn_rounded_assignment"
+            android:text="@string/upload"
+            android:textAllCaps="false"
+
+            android:layout_marginStart="@dimen/dp15w"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/rl_upload_assignment"
+        android:background="@color/colorGray"
+        android:id="@+id/view4"
+        />
+
+
+    <Button
+        android:layout_width="@dimen/dp120h"
+        android:layout_height="@dimen/dp35h"
+        android:id="@+id/btn_send"
+
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_marginBottom="@dimen/dp15h"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_rounded_assignment"
+        android:text="@string/send"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+</RelativeLayout>
