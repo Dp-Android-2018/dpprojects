@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_message_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10w"
+        android:text="How Are You Today mr X "
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:gravity="start"
+        android:background="@drawable/tv_sender_message_background"
+        android:padding="@dimen/dp10w"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentStart="true"
+
+       />
+
+
+    <TextView
+        android:layout_below="@+id/tv_message_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10w"
+        android:text="How Are You Today Mr X"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:gravity="end"
+        android:background="@drawable/tv_receptionist_background"
+        android:padding="@dimen/dp10w"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentEnd="true"
+
+        />
+</RelativeLayout>

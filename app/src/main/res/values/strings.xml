@@ -50,5 +50,6 @@
     <string name="file_upload">File Upload</string>
     <string name="upload">Upload</string>
     <string name="send">Send</string>
+    <string name="hint_edit_text_type_something">Type Something</string>
 
 </resources>
