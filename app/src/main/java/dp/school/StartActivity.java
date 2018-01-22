@@ -3,6 +3,7 @@ package dp.school;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.eightbitlab.bottomnavigationbar.BottomBarItem;
 import com.eightbitlab.bottomnavigationbar.BottomNavigationBar;
 
@@ -29,6 +30,14 @@ public class StartActivity extends AppCompatActivity {
         bottomNavigationBar.addTab(scheduleTab);
         bottomNavigationBar.addTab(topStudent);
         bottomNavigationBar.addTab(feedsTab);
+
+
+        new MaterialDialog.Builder(this)
+                .title("TITLE")
+                .content("details details details")
+                .positiveText("agree").positiveColor(getResources().getColor(R.color.colorLightBlue))
+                .negativeText("dismiss").negativeColor(getResources().getColor(R.color.colorLightBlue))
+                .show();
 
     }
 }
