@@ -31,7 +31,8 @@
     <string name="title_students">Students</string>
     <string name="tab_feeds">Feeds</string>
     <string name="tab_schedule">Schedule</string>
-    <string name="tab_top_student">Top Student</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_top_student">Student</string>
     <string name="tab_level">Level</string>
     <string name="tab_class">Class</string>
     <string name="points">Points</string>

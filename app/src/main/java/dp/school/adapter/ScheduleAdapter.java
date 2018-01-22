@@ -31,17 +31,17 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ClassV
 
     @Override
     public ScheduleAdapter.ClassViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_schedule, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_student_assignment, parent, false);
         ClassViewHolder viewHolder = new ClassViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ScheduleAdapter.ClassViewHolder holder, final int position) {
-        holder.name.setText(scheduleItems.get(position).getName());
-        holder.grade.setText(scheduleItems.get(position).getGrade());
-        holder.numberOfStudents.setText(scheduleItems.get(position).getName()+" "+context.getResources().getString(R.string.title_students));
-        holder.time.setText(scheduleItems.get(position).getTime());
+       // holder.name.setText(scheduleItems.get(position).getName());
+      //  holder.grade.setText(scheduleItems.get(position).getGrade());
+      //  holder.numberOfStudents.setText(scheduleItems.get(position).getName()+" "+context.getResources().getString(R.string.title_students));
+       // holder.time.setText(scheduleItems.get(position).getTime());
     }
 
     @Override
@@ -50,10 +50,10 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ClassV
     }
 
     public static class ClassViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tv_schedule_class_name) TextView name;
-        @BindView(R.id.tv_schedule_class_grade) TextView grade;
-        @BindView(R.id.tv_schedule_class_number_of_students)TextView numberOfStudents;
-        @BindView(R.id.tv_schedule_time)TextView time;
+      //  @BindView(R.id.tv_schedule_class_name) TextView name;
+       // @BindView(R.id.tv_schedule_class_grade) TextView grade;
+       // @BindView(R.id.tv_schedule_class_number_of_students)TextView numberOfStudents;
+       // @BindView(R.id.tv_schedule_time)TextView time;
 
         public ClassViewHolder(View view) {
             super(view);

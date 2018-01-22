@@ -24,10 +24,11 @@ public class StartActivity extends AppCompatActivity {
         BottomBarItem feedsTab = new BottomBarItem(R.drawable.ic_feed_off, R.string.tab_feeds);
         BottomBarItem scheduleTab = new BottomBarItem(R.drawable.ic_calender_off, R.string.tab_schedule);
         BottomBarItem topStudent = new BottomBarItem(R.drawable.ic_student_off, R.string.tab_top_student);
-        bottomNavigationBar.addTab(feedsTab);
+        BottomBarItem home = new BottomBarItem(R.drawable.ic_home_off, R.string.tab_home);
+        bottomNavigationBar.addTab(home);
         bottomNavigationBar.addTab(scheduleTab);
         bottomNavigationBar.addTab(topStudent);
-
+        bottomNavigationBar.addTab(feedsTab);
 
     }
 }

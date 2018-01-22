@@ -7,26 +7,62 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/ll_assignment_student_container"
+        android:id="@+id/rl_student_assignment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp120h"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/dp5h"
-        android:paddingTop="@dimen/dp5h">
+        android:orientation="vertical">
         <TextView
-            android:id="@+id/tv_assignment_student_name"
+            android:id="@+id/tv_student_assignment_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp15w"
+            android:layout_toStartOf="@+id/rl_student_assignment_activity_container"
             android:layout_marginStart="@dimen/dp5w"
-            android:layout_toEndOf="@+id/iv_assignment_student_photo"
-            android:layout_toStartOf="@+id/tv_assignment_student_assignment"
-            android:text="Class Name #1"
+            android:text="Assignment Title #1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_student_assignment_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/rl_student_assignment_activity_container"
+            android:layout_marginStart="@dimen/dp5w"
+            android:layout_below="@+id/tv_student_assignment_title"
+            android:text="Lorem fsdjalkfdjsalkf dsaflkajfdlksa flkjdsalkfn lkfjdsalkn lsdfajslb fdkaljlkbfdsajlk afjkladsjflkdsa"
+            android:textColor="@color/colorPrimary"
+            />
 
+        <RelativeLayout
+            android:id="@+id/rl_student_assignment_activity_container"
+            android:layout_width="@dimen/dp90w"
+            android:layout_height="@dimen/dp120h"
+            android:gravity="center_horizontal"
+            android:background="@color/colorLightBlue"
+            android:layout_alignParentEnd="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_student_assignment_degree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10h"
+                android:gravity="center"
+                android:text="50"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_student_assignment_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp10h"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Activities"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
     </RelativeLayout>
     <View

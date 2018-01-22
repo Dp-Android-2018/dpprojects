@@ -40,13 +40,12 @@ public class CalenderActivity extends AppCompatActivity {
 
         ArrayList<ScheduleResponse>classItems = new ArrayList<>();
         for(int i=0; i<10; i++){
-            ScheduleResponse schaduleResponse = new ScheduleResponse();
-            schaduleResponse.setGrade("First grade");
-            schaduleResponse.setName("Class name #"+(i+1));
-            schaduleResponse.setNumberOfStudent(23+i+1*3);
-            schaduleResponse.setTime("12:32");
-
-            classItems.add(schaduleResponse);
+            ScheduleResponse scheduleResponse = new ScheduleResponse();
+            scheduleResponse.setGrade("First grade");
+            scheduleResponse.setName("Class name #"+(i+1));
+            scheduleResponse.setNumberOfStudent(23+i+1*3);
+            scheduleResponse.setTime("12:32");
+            classItems.add(scheduleResponse);
         }
 
         classesRecycleView =  findViewById(R.id.rv_calender_schdule);
