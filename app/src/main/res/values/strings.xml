@@ -16,7 +16,6 @@
     <string name="title_activity_calender">CalenderActivity</string>
 
 
-    
     <string name="title_sign_as_student">Sign in as Student</string>
     <string name="title_sign_as_parent">Sign in as Parent</string>
     <string name="label_attendance">Attendance</string>
@@ -41,4 +40,5 @@
     <string name="action_download">File download</string>
     <string name="label_assignment_grade">Assignment Grade</string>
     <string name="action_send">Send</string>
+    <string name="tab_new_assignment"></string>
 </resources>
