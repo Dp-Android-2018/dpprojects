@@ -21,8 +21,8 @@ public class AssignmentsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_assignment_details);
-        ButterKnife.bind(this);
+     //   setContentView(R.layout.fragment_assignment_details);
+      //  ButterKnife.bind(this);
 
         /*ArrayList<AssignmentResponse> classItems = new ArrayList<>();
         for(int i=0; i<10000; i++){

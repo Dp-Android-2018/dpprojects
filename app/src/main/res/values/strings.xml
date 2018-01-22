@@ -42,5 +42,12 @@
     <string name="action_send">Send</string>
     <string name="tab_new_assignment">New Assignment</string>
     <string name="tab_past">Past</string>
+    <string name="point">Point</string>
+    <string name="describtion">Description</string>
+    <string name="file_download">File download</string>
+    <string name="finish_the_assignment">Finish The Assignment</string>
+    <string name="file_upload">File Upload</string>
+    <string name="upload">Upload</string>
+    <string name="send">Send</string>
 
 </resources>
