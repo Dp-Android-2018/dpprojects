@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.base.utils.UIUtils;
+import dp.school.base.utils.ValidationUtils;
 
 public class TeacherLoginActivity extends AppCompatActivity {
 
@@ -28,8 +29,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_login);
         ButterKnife.bind(this);
         setMoveAnimation();
-        UIUtils.approveEnteredData(phoneEditText,phoneImageView);
-        UIUtils.approveEnteredData(passwordEditText,passwordImageView);
+        UIUtils.approveEnteredData(phoneEditText,phoneImageView, ValidationUtils.TYPE_PHONE);
+        UIUtils.approveEnteredData(passwordEditText,passwordImageView,ValidationUtils.TYPE_PASSWORD);
     }
 
 

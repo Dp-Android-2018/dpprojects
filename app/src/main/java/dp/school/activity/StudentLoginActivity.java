@@ -10,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.base.utils.UIUtils;
+import dp.school.base.utils.ValidationUtils;
 
 public class StudentLoginActivity extends AppCompatActivity {
 
@@ -32,8 +33,8 @@ public class StudentLoginActivity extends AppCompatActivity {
     }
 
     private void handelEditTextListener() {
-        UIUtils.approveEnteredData(userNameEditText,userNameImageView);
-        UIUtils.approveEnteredData(passwordEditText,passwordImageView);
+        UIUtils.approveEnteredData(userNameEditText,userNameImageView, ValidationUtils.TYPE_TEXT);
+        UIUtils.approveEnteredData(passwordEditText,passwordImageView, ValidationUtils.TYPE_TEXT);
     }
 
     private void setMoveAnimation(){

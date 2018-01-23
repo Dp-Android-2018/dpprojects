@@ -119,4 +119,9 @@ public class LoginFragment extends Fragment implements LoginView {
     public Context getContext() {
         return getActivity();
     }
+
+    @Override
+    public void onError(String messageError) {
+
+    }
 }

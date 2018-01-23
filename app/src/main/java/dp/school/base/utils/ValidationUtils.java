@@ -17,6 +17,9 @@ import java.net.InetAddress;
  * Created by PC on 20/12/2017.
  */
 public class ValidationUtils {
+
+    public static final int TYPE_EMAIL=1,TYPE_PHONE=2,TYPE_NAME=3,TYPE_TEXT=4,TYPE_LONG_TEXT=5 , TYPE_PASSWORD=6;
+
     //<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     public static boolean isInternetAvailable() {
         try {
@@ -50,7 +53,7 @@ public class ValidationUtils {
         return str == null || str.isEmpty() ? true : false;
     }
 
-    Boolean isAvLen(String str, int from, int to) {
+    public static Boolean isAvLen(String str, int from, int to) {
         return str.length() > from && str.length() < to ? true : false;
     }
 
@@ -121,5 +124,23 @@ public class ValidationUtils {
         int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100);
         int percent = (level * 100) / scale;
         return percent;
+    }
+
+    public static boolean validateTexts(String data,int validationType){
+
+        if(isEmpty(data))return false;
+
+        if(validationType==TYPE_EMAIL){
+            return isMail(data);
+        }else if(validationType==TYPE_PHONE){
+            return  isPhone(data);
+        }else if(validationType==TYPE_TEXT){
+            return isAvLen(data,3,25);
+        }else if(validationType==TYPE_LONG_TEXT){
+            return isAvLen(data,10,200);
+        }else if(validationType==TYPE_PASSWORD){
+            return isAvLen(data,6,35);
+        }
+        return false;
     }
 }

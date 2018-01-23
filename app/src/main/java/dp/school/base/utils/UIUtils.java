@@ -23,7 +23,7 @@ import static android.view.View.VISIBLE;
 
 public class UIUtils {
 
-    public static void approveEnteredData(EditText editText,final ImageView imageView){
+    public static void approveEnteredData(EditText editText, final ImageView imageView , final int validationType){
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -31,7 +31,7 @@ public class UIUtils {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.length() >= 4) {
+                if (ValidationUtils.validateTexts(charSequence.toString(),validationType)) {
                     imageView.setVisibility(View.VISIBLE);
                 } else {
                     imageView.setVisibility(View.GONE);
