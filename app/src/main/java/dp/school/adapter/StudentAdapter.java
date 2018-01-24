@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
-import dp.school.response.StudentResponse;
+import dp.school.response.studentresponse.StudentResponse;
 
 /**
  * Created by PC on 27/12/2017.
@@ -36,9 +36,9 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ClassVie
 
     @Override
     public void onBindViewHolder(StudentAdapter.ClassViewHolder holder, final int position) {
-        holder.name.setText(studentItems.get(position).getName());
-        holder.class_.setText(studentItems.get(position).getName());
-        holder.points.setText(studentItems.get(position).getPoints()+" "+context.getResources().getString(R.string.points));
+        holder.name.setText(studentItems.get(position).getUser().getName());
+        holder.class_.setText(studentItems.get(position).getUser().getName());
+        holder.points.setText(studentItems.get(position).getUser().getId()+" "+context.getResources().getString(R.string.points));
         holder.photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

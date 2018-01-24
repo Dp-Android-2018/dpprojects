@@ -2,8 +2,9 @@ package dp.school.views;
 
 
 import dp.school.base.BaseView;
+import dp.school.response.parentresponse.ParentResponse;
 
 public interface ParentView extends BaseView{
-    void onPasswordChanged();
-    void onParentValidated();
+    void onParentPhoneValidated(ParentResponse parentResponse);
+    void onParentCodeValidated();
 }

@@ -51,10 +51,10 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/et_student_login_user_name"
+                android:id="@+id/et_student_login_ssn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/iv_student_login_name_entered"
+                android:layout_toStartOf="@+id/iv_student_login_ssn_entered"
                 android:backgroundTint="#000"
                 android:hint="@string/hint_security_number"
                 android:background="@color/float_transparent"
@@ -63,7 +63,7 @@
                 android:textColorHint="#000" />
 
             <ImageView
-                android:id="@+id/iv_student_login_name_entered"
+                android:id="@+id/iv_student_login_ssn_entered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -121,7 +121,7 @@
 
 
     <dp.school.base.views.AnimatedButtonView
-        android:id="@+id/abv_main_login"
+        android:id="@+id/abv_student_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

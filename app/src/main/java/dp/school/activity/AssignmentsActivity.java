@@ -5,14 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
 
-import butterknife.ButterKnife;
-import dp.school.R;
-import dp.school.adapter.AssignmentAdapter;
-import dp.school.adapter.StudentAdapter;
-import dp.school.response.AssignmentResponse;
-import dp.school.response.StudentResponse;
 
 public class AssignmentsActivity extends AppCompatActivity {
 

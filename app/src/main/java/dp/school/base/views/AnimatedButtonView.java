@@ -154,6 +154,10 @@ public class AnimatedButtonView extends FrameLayout {
 
     }
 
+    public FrameLayout getButton(){
+        return containerFrameLayout;
+    }
+
 
     private int getFabWidth() {
         return (int) getResources().getDimension(R.dimen.dp40h);

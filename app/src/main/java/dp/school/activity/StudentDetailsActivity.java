@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import dp.school.R;
-import dp.school.adapter.StudentAdapter;
-import dp.school.response.StudentResponse;
+
 
 public class StudentDetailsActivity extends AppCompatActivity {
 

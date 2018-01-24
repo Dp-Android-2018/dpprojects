@@ -121,7 +121,7 @@ public class LoginFragment extends Fragment implements LoginView {
     }
 
     @Override
-    public void onError(String messageError) {
+    public void onError(int code , String messageError) {
 
     }
 }

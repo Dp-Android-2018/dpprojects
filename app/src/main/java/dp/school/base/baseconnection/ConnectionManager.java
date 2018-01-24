@@ -25,6 +25,8 @@ import java.util.Map;
 
 import dp.school.R;
 import dp.school.base.AppController;
+import dp.school.request.BaseRequest;
+import dp.school.response.teacherresponse.TeacherResponse;
 
 /**
  * Created by PC on 19/12/2017.
@@ -46,7 +48,7 @@ public class ConnectionManager {
     public void createConnection(Object requestData, String url, final boolean haveHeaders, final boolean showLoadingBar, final ConnectionView connectionView) {
 
         if (dialog == null) {
-            dialog = new Dialog(AppController.getContext(), R.style.AppTheme);
+            dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
         }
 
@@ -56,22 +58,25 @@ public class ConnectionManager {
 
         JSONObject jsonObject = null;
         try {
-            jsonObject = new JSONObject((new Gson().toJson(requestData.toString())).toString());
+            String requestString = new Gson().toJson(requestData);
+            jsonObject = new JSONObject(requestString);
+            System.out.println("Request : " + requestString);
         } catch (Exception e) {
             e.getStackTrace();
         }
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, WebServiceConstants.DEFAULT_URL + url, jsonObject,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         connectionView.onResponseSuccess(response.toString());
+                        System.out.println("Response : "+response.toString());
                         dialog.cancel();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        connectionView.onResponseError(WebServiceConstants.RESPONSE_ERROR, getErrorMessage(volleyError));
+                        connectionView.onResponseError(volleyError.networkResponse.statusCode, getErrorMessage(volleyError));
                         dialog.cancel();
                     }
                 }
@@ -82,6 +87,8 @@ public class ConnectionManager {
                 if (haveHeaders) {
                     //TODO add the auth token
                 }
+                params.put("Accept", "application/json");
+                params.put("key", "kNWSzTpb5d3ZPILEsKUMsdPGsMEjtfcuDe6eBj8TFm365qyHzQvyX7IJRgbu9w6D");
                 return params;
             }
         };

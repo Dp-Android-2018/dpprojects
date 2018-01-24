@@ -18,6 +18,7 @@
 
     <string name="title_sign_as_student">Sign in as Student</string>
     <string name="title_sign_as_parent">Sign in as Parent</string>
+    <string name="title_sign_as_teacher">Sign in as Teacher</string>
     <string name="label_attendance">Attendance</string>
     <string name="label_student_of_day">Student Of Day</string>
     <string name="label_quiz">Quiz</string>

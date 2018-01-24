@@ -26,7 +26,7 @@
             android:layout_marginTop="@dimen/dp20h"
             android:gravity="center"
             android:lines="1"
-            android:text="@string/title_sign_as_student"
+            android:text="@string/title_sign_as_teacher"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/sp15"
             android:textStyle="bold" />
@@ -121,7 +121,7 @@
 
 
     <dp.school.base.views.AnimatedButtonView
-        android:id="@+id/abv_main_login"
+        android:id="@+id/abv_teacher_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -21,9 +21,6 @@ import dp.school.base.utils.UIUtils;
 import dp.school.base.views.AnimatedButtonView;
 import dp.school.base.views.OnAnimatedButtonListener;
 
-/**
- * Created by DELL on 06/12/2017.
- */
 
 public class MainActivity extends AppCompatActivity {
     public static int TEACHER_SELECTED = 1, STUDENT_SELECTED = 2, PARENT_SELECTED = 3;
@@ -60,6 +57,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        setEvents();
+    }
+
+
+    private void setEvents() {
+        enterButtonEvent();
+        teacherSelected();
+        studentSelected();
+        parentSelected();
+    }
+
+
+
+    private void enterButtonEvent(){
 
         loginAnimatedButton.setOnAnimatedButtonListener(new OnAnimatedButtonListener() {
             @Override
@@ -81,17 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         loginAnimatedButton.setBackground(btnDrawableGrayColor);
-
-        setEvents();
     }
-
-
-    private void setEvents() {
-        teacherSelected();
-        studentSelected();
-        parentSelected();
-    }
-
 
     private void teacherSelected() {
         teacherTab.setOnClickListener(new View.OnClickListener() {
@@ -141,9 +142,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
     private void delayedStartNextActivity() {
         new Handler().postDelayed(new Runnable() {

@@ -52,6 +52,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_parent_phone_container"
             android:layout_width="@dimen/dp250w"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -73,6 +74,42 @@
 
             <ImageView
                 android:id="@+id/iv_parent_login_phone_entered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_data_entered"
+                />
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_parent_password_container"
+            android:layout_width="@dimen/dp250w"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_parent_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#000"
+                android:hint="@string/hint_password"
+                android:background="@color/float_transparent"
+                android:layout_toStartOf="@+id/iv_parent_login_password_entered"
+                android:inputType="textPassword"
+                android:textColor="#000"
+                android:textColorHint="#000" />
+
+            <ImageView
+                android:id="@+id/iv_parent_login_password_entered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"

@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.adapter.StudentAdapter;
-import dp.school.response.StudentResponse;
+import dp.school.response.studentresponse.StudentResponse;
+
 
 public class StudentsActivity extends AppCompatActivity {
 
@@ -23,9 +24,9 @@ public class StudentsActivity extends AppCompatActivity {
         ArrayList<StudentResponse> classItems = new ArrayList<>();
         for(int i=0; i<10000; i++){
             StudentResponse studentResponse = new StudentResponse();
-            studentResponse.setClassName("Class number "+i);
-            studentResponse.setName("Student Name "+(i+1));
-            studentResponse.setPoints(i+3);
+            studentResponse.getUser().setName("Class number "+i);
+            studentResponse.getUser().setName("Student Name "+(i+1));
+            studentResponse.getUser().setId(i+3);
             classItems.add(studentResponse);
         }
 

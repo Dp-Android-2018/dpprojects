@@ -7,8 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import dp.school.R;
 import dp.school.adapter.DaysAdapter;
 import dp.school.adapter.MonthsAdapter;
@@ -28,8 +30,8 @@ public class HorizontalCalenderView extends LinearLayout {
     ArrayList<MonthItem> months;
     RecyclerView monthsRecycleView;
     RecyclerView daysRecycleView;
-    DayItem selectedDay=null;
-    MonthItem selectedMonth=null;
+    DayItem selectedDay = null;
+    MonthItem selectedMonth = null;
 
     public HorizontalCalenderView(@NonNull Context context) {
         super(context);
@@ -43,17 +45,15 @@ public class HorizontalCalenderView extends LinearLayout {
 
     private void init(final Context context) {
         inflate(context, R.layout.view_horzontial_calender, this);
-
-       monthsRecycleView = findViewById(R.id.rv_calender_months);
-
-       daysRecycleView= findViewById(R.id.rv_calender_days);
+        monthsRecycleView = findViewById(R.id.rv_calender_months);
+        daysRecycleView = findViewById(R.id.rv_calender_days);
         setCalenderDays();
         setCalenderMonths(context);
         MonthsAdapter monthsAdapter = new MonthsAdapter(months, context, new OnMonthClickListener() {
             @Override
             public void onMonthClickListener(int position) {
 
-                setDaysAdapter(context,position);
+                setDaysAdapter(context, position);
             }
         });
         monthsRecycleView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
@@ -69,28 +69,28 @@ public class HorizontalCalenderView extends LinearLayout {
         return selectedMonth;
     }
 
-    private void setCalenderMonths(Context context){
+    private void setCalenderMonths(Context context) {
         months = new ArrayList<>();
         for (int i = 0; i < monthsNames.length; i++) {
             months.add(new MonthItem(monthsNames[i]));
         }
-        setDaysAdapter(context,0);
+        setDaysAdapter(context, 0);
     }
 
-    private void setDaysAdapter(Context context ,final int position){
+    private void setDaysAdapter(Context context, final int position) {
         selectedMonth = months.get(position);
         selectedDay = null;
         DaysAdapter daysAdapter = new DaysAdapter(getContext(), calenderDays.get(position), new OnDayClickListener() {
             @Override
             public void onDayClickListener(int dayPosition) {
-                selectedDay  = calenderDays.get(position).get(dayPosition);
+                selectedDay = calenderDays.get(position).get(dayPosition);
             }
         });
         daysRecycleView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         daysRecycleView.setAdapter(daysAdapter);
     }
 
-    private void setCalenderDays(){
+    private void setCalenderDays() {
         calenderDays = new ArrayList<>();
         for (int i = 0; i < 12; i++) {
             Calendar cal = Calendar.getInstance();
