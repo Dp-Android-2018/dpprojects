@@ -4,17 +4,13 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
-import dp.school.base.baseconnection.ConnectionManager;
+import dp.school.base.baseconnection.ConnectionUtils;
 import dp.school.base.baseconnection.ConnectionView;
 import dp.school.base.baseconnection.WebServiceConstants;
 import dp.school.request.StudentRequest;
-import dp.school.request.TeacherRequest;
 import dp.school.response.studentresponse.StudentResponse;
-import dp.school.response.teacherresponse.TeacherResponse;
 import dp.school.views.StudentPresenterView;
 import dp.school.views.StudentView;
-import dp.school.views.TeacherPresenterView;
-import dp.school.views.TeacherView;
 
 
 public class StudentPresenter implements StudentPresenterView{
@@ -27,7 +23,7 @@ public class StudentPresenter implements StudentPresenterView{
     @Override
     public void onLoginStudent(StudentRequest studentRequest) {
 
-        ConnectionManager.getInstance().createConnection(studentRequest, WebServiceConstants.STUDENT_LOGIN, true, true, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(studentRequest, WebServiceConstants.STUDENT_LOGIN, true, true, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
                 studentView.onStudentLogined(new Gson().fromJson(response,StudentResponse.class));

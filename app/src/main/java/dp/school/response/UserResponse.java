@@ -3,9 +3,7 @@ package dp.school.response;
 
 import com.google.gson.annotations.SerializedName;
 
-import dp.school.base.baseconnection.BaseResponse;
-
-public class UserResponse extends BaseResponse {
+public class UserResponse {
 
     @SerializedName("name")
     private String name;

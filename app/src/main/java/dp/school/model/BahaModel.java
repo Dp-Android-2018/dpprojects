@@ -2,7 +2,7 @@ package dp.school.model;
 
 import android.content.Context;
 
-import dp.school.base.baseconnection.ConnectionManager;
+import dp.school.base.baseconnection.ConnectionUtils;
 import dp.school.base.baseconnection.ConnectionView;
 import dp.school.request.UserRequest;
 
@@ -15,7 +15,7 @@ public class BahaModel {
     public void getUserData(String url, final boolean haveHeaders, final boolean showLoadingBar, final ConnectionView connectionView) {
         UserRequest userRequest=null;
 
-        ConnectionManager.getInstance().createConnection(userRequest, url, haveHeaders, showLoadingBar, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(userRequest, url, haveHeaders, showLoadingBar, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
                 connectionView.onResponseSuccess(response);

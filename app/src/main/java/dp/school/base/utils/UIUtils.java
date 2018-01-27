@@ -4,6 +4,7 @@ package dp.school.base.utils;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,6 +16,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import java.util.ArrayList;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import dp.school.R;
 import dp.school.base.views.AnimatedButtonView;
 import static android.view.View.INVISIBLE;
@@ -50,6 +53,13 @@ public class UIUtils {
         for(int i=0; i< animatedViews.size(); i++) {
             animatedViews.get(i).startAnimation(animation);
         }
+    }
+
+    public static void showSweetAlertDialog(Context context,int type,String message){
+        SweetAlertDialog pDialog = new SweetAlertDialog(context, type);
+        pDialog.setConfirmText(context.getResources().getString(R.string.action_close));
+        pDialog.setContentText(message);
+        pDialog.show();
     }
 
     public static void revealButton(final Context context ,final AnimatedButtonView loginAnimatedButton ,final View revealView) {

@@ -61,7 +61,6 @@ public class AnimatedButtonView extends FrameLayout {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AnimatedButtonView, 0, 0);
             titleTextView.setText(typedArray.getString(R.styleable.AnimatedButtonView_abtn_text));
             titleTextView.setTextColor(getResources().getColor(typedArray.getResourceId(R.styleable.AnimatedButtonView_abtn_text_color,0)));
-
     }
 
 
@@ -158,6 +157,9 @@ public class AnimatedButtonView extends FrameLayout {
         return containerFrameLayout;
     }
 
+    public void setTitle(String title){
+        titleTextView.setText(title);
+    }
 
     private int getFabWidth() {
         return (int) getResources().getDimension(R.dimen.dp40h);

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import dp.school.R;
 import dp.school.base.utils.SharePreferenceConstants;
 import dp.school.base.utils.SharedPreferenceUtils;
@@ -34,7 +35,7 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
     @BindView(R.id.abv_teacher_login)
     AnimatedButtonView loginAnimatedButton;
     TeacherPresenter teacherPresenter;
-
+    TeacherRequest teacherRequest=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +46,11 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
         UIUtils.approveEnteredData(phoneEditText, phoneImageView, ValidationUtils.TYPE_PHONE);
         UIUtils.approveEnteredData(passwordEditText, passwordImageView, ValidationUtils.TYPE_PASSWORD);
         setEvents();
+        autoLogin();
     }
 
     private void login() {
-        TeacherRequest teacherRequest = new TeacherRequest();
+        teacherRequest = new TeacherRequest();
         teacherRequest.setPhone(phoneEditText.getText() + "");
         teacherRequest.setPassword(passwordEditText.getText() + "");
         teacherPresenter.onLoginTeacher(teacherRequest);
@@ -73,7 +75,8 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
 
     @Override
     public void onTeacherLogined(TeacherResponse teacherResponse) {
-        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, teacherResponse);
+        if(teacherRequest!=null)
+        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, teacherRequest);
         Toast.makeText(this, "" + teacherResponse.getUser().getName(), Toast.LENGTH_SHORT).show();
     }
 
@@ -84,6 +87,13 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
 
     @Override
     public void onError(int code ,String messageError) {
-        Toast.makeText(this, ""+code, Toast.LENGTH_SHORT).show();
+        if(code==401) {
+            UIUtils.showSweetAlertDialog(TeacherLoginActivity.this, SweetAlertDialog.ERROR_TYPE,getResources().getString(R.string.msg_wrong_password));
+        }
+    }
+    private void autoLogin(){
+        teacherRequest = (TeacherRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER,TeacherRequest.class);
+        if(teacherRequest!=null)
+            teacherPresenter.onLoginTeacher(teacherRequest);
     }
 }

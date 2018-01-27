@@ -52,5 +52,8 @@
     <string name="upload">Upload</string>
     <string name="send">Send</string>
     <string name="hint_edit_text_type_something">Type Something</string>
+    <string name="msg_wrong_password">Data you entered not correct</string>
+    <string name="action_close">Close</string>
+    <string name="msg_wrong_code">Sorry you entered wrong code</string>
 
 </resources>

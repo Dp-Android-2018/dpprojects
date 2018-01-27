@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import dp.school.R;
 import dp.school.base.utils.SharePreferenceConstants;
 import dp.school.base.utils.SharedPreferenceUtils;
@@ -29,12 +30,13 @@ public class StudentLoginActivity extends AppCompatActivity implements StudentVi
     EditText ssnEditText;
     @BindView(R.id.iv_student_login_ssn_entered)
     ImageView ssnImageView;
-   // @BindView(R.id.iv_student_login_name_entered)
-   // ImageView userNameImageView;
+    @BindView(R.id.iv_student_login_password_entered)
+    ImageView passwordImageView;
     @BindView(R.id.abv_student_login)
     AnimatedButtonView loginAnimatedButton;
 
     StudentPresenter studentPresenter ;
+    StudentRequest studentRequest=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +47,12 @@ public class StudentLoginActivity extends AppCompatActivity implements StudentVi
         setMoveAnimation();
         handelEditTextListener();
         setEvents();
+        autoLogin();
     }
 
     private void handelEditTextListener() {
         UIUtils.approveEnteredData(ssnEditText,ssnImageView, ValidationUtils.TYPE_TEXT);
-        UIUtils.approveEnteredData(passwordEditText,ssnImageView, ValidationUtils.TYPE_PASSWORD);
+        UIUtils.approveEnteredData(passwordEditText,passwordImageView, ValidationUtils.TYPE_PASSWORD);
     }
 
     private void setMoveAnimation() {
@@ -64,7 +67,7 @@ public class StudentLoginActivity extends AppCompatActivity implements StudentVi
     }
 
     private void login(){
-        StudentRequest studentRequest = new StudentRequest();
+         studentRequest = new StudentRequest();
         studentRequest.setPassword(passwordEditText.getText()+"");
         studentRequest.setSsn(ssnEditText.getText()+"");
         studentPresenter.onLoginStudent(studentRequest);
@@ -86,12 +89,20 @@ public class StudentLoginActivity extends AppCompatActivity implements StudentVi
 
     @Override
     public void onError(int code, String messageError) {
-        Toast.makeText(this, "Code : "+code, Toast.LENGTH_SHORT).show();
+        if(code==401) {
+         UIUtils.showSweetAlertDialog(StudentLoginActivity.this, SweetAlertDialog.ERROR_TYPE,getResources().getString(R.string.msg_wrong_password));
+        }
     }
 
     @Override
     public void onStudentLogined(StudentResponse studentResponse) {
-        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_STUDENT,SharePreferenceConstants.PREF_STUDENT,studentResponse);
+        if(studentRequest!=null)
+        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_STUDENT,SharePreferenceConstants.PREF_STUDENT,studentRequest);
         Toast.makeText(this, ""+studentResponse.getUser().getImage(), Toast.LENGTH_SHORT).show();
     }
+    private void autoLogin(){
+        studentRequest = (StudentRequest)SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_STUDENT, SharePreferenceConstants.PREF_STUDENT,StudentRequest.class);
+        studentPresenter.onLoginStudent(studentRequest);
+    }
+
 }

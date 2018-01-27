@@ -1,8 +1,8 @@
 package dp.school.base.baseconnection;
 
 import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.widget.ImageView;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
@@ -14,35 +14,29 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
-
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import dp.school.R;
 import dp.school.base.AppController;
-import dp.school.request.BaseRequest;
-import dp.school.response.teacherresponse.TeacherResponse;
 
 /**
  * Created by PC on 19/12/2017.
  */
 
-public class ConnectionManager {
+public class ConnectionUtils {
     private static final int CONNECTION_TIME_OUT = 8000;
-    private static ConnectionManager connectionPresenter = null;
+    private static ConnectionUtils connectionPresenter = null;
     Dialog dialog;
 
-    private ConnectionManager() {
+    private ConnectionUtils() {
 
     }
 
-    public static ConnectionManager getInstance() {
-        return connectionPresenter = ((connectionPresenter == null) ? (new ConnectionManager()) : connectionPresenter);
+    public static ConnectionUtils getInstance() {
+        return connectionPresenter = ((connectionPresenter == null) ? (new ConnectionUtils()) : connectionPresenter);
     }
 
     public void createConnection(Object requestData, String url, final boolean haveHeaders, final boolean showLoadingBar, final ConnectionView connectionView) {
@@ -50,6 +44,7 @@ public class ConnectionManager {
         if (dialog == null) {
             dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         }
 
         if (showLoadingBar) {
@@ -69,7 +64,7 @@ public class ConnectionManager {
                     @Override
                     public void onResponse(JSONObject response) {
                         connectionView.onResponseSuccess(response.toString());
-                        System.out.println("Response : "+response.toString());
+                        System.out.println("Response : " + response.toString());
                         dialog.cancel();
                     }
                 },
@@ -98,6 +93,7 @@ public class ConnectionManager {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         AppController.getInstance().addToRequestQueue(jsonObjectRequest);
+
     }
 
     private void showResponseMessages(int statueCode, String message) {

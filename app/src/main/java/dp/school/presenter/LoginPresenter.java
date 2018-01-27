@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import dp.school.R;
-import dp.school.base.baseconnection.ConnectionManager;
+import dp.school.base.baseconnection.ConnectionUtils;
 import dp.school.base.baseconnection.ConnectionView;
 import dp.school.base.utils.ValidationUtils;
 import dp.school.login.LoginView;
@@ -29,7 +29,7 @@ public class LoginPresenter {
             loginView.onShowError(loginView.getContext().getResources().getString(R.string.app_name));
         }
 
-        ConnectionManager.getInstance().createConnection(userRequest,"",false,true, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(userRequest,"",false,true, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
                 Gson gson = new Gson();

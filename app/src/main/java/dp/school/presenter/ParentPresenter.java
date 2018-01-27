@@ -2,7 +2,7 @@ package dp.school.presenter;
 
 import android.content.Context;
 import com.google.gson.Gson;
-import dp.school.base.baseconnection.ConnectionManager;
+import dp.school.base.baseconnection.ConnectionUtils;
 import dp.school.base.baseconnection.ConnectionView;
 import dp.school.base.baseconnection.WebServiceConstants;
 import dp.school.request.ParentRequest;
@@ -21,7 +21,7 @@ public class ParentPresenter implements ParentPresenterView {
 
     @Override
     public void onValidateParentPhone(ParentRequest parentRequest) {
-        ConnectionManager.getInstance().createConnection(parentRequest, WebServiceConstants.PARENT_LOGIN, true, true, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(parentRequest, WebServiceConstants.PARENT_LOGIN, true, true, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
                 parentView.onParentPhoneValidated(new Gson().fromJson(response, ParentResponse.class));
@@ -41,6 +41,8 @@ public class ParentPresenter implements ParentPresenterView {
 
     @Override
     public void onValidateParentCode(String password) {
-
+        parentView.onParentCodeValidated();
     }
+
+
 }
