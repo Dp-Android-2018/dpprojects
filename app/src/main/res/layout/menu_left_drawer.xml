@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:weightSum="2"
+
+    android:orientation="horizontal">
+
+
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1.25"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/iv_left_drawer_photo"
+        android:layout_width="@dimen/dp100w"
+        android:layout_height="@dimen/dp100w"
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_centerVertical="true"
+        android:clickable="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user_temp"
+        app:civ_border_color="@color/colorGray"
+        app:civ_border_width="@dimen/dp5w"
+        app:civ_shadow="true"
+        app:civ_shadow_color="@color/colorGray"
+        app:civ_shadow_radius="5" />
+
+
+    <TextView
+        android:id="@+id/tv_left_drawer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5h"
+        android:gravity="center"
+        android:text="Mohamed Atef"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_left_drawer_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Mohamed.awad@school.com"
+        android:textColor="@color/colorPrimary" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_left_drawer_collection"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.75"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+    </LinearLayout>
+</LinearLayout>

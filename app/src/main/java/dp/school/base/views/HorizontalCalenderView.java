@@ -7,10 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import dp.school.R;
 import dp.school.adapter.DaysAdapter;
 import dp.school.adapter.MonthsAdapter;

@@ -100,6 +100,7 @@ public class AnimatedButtonView extends FrameLayout {
     }
 
     private void animateButtonWidth() {
+        titleTextView.setVisibility(GONE);
         ValueAnimator anim = ValueAnimator.ofInt(containerFrameLayout.getMeasuredWidth(), getFabWidth());
 
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -124,8 +125,9 @@ public class AnimatedButtonView extends FrameLayout {
 
 
     private void fadeOutTextAndShowProgressDialog() {
+
         titleTextView.animate().alpha(0f)
-                .setDuration(250)
+                .setDuration(50)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {

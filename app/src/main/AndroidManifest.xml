@@ -20,7 +20,6 @@
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,24 +27,21 @@
         <activity android:name=".activity.ParentLoginActivity" />
         <activity android:name=".activity.StudentLoginActivity" />
         <activity android:name=".activity.TeacherLoginActivity" />
-        <activity android:name=".activity.AssignmentsActivity"></activity>
+        <activity android:name=".activity.AssignmentsActivity" />
         <activity
             android:name=".activity.CalenderActivity"
             android:label="@string/title_activity_calender"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".activity.PaymentActivity"></activity>
+        <activity android:name=".activity.StudentDetailsActivity" />
+        <activity android:name=".activity.StudentsActivity" />
+        <activity android:name=".activity.FeedsActivity" />
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".MenuActivity">
 
         </activity>
-        <activity android:name=".Main2Activity"></activity>
-        <activity android:name=".StartActivity">
-
-        </activity>
-        <activity android:name=".activity.PaymentActivity">
-
-        </activity>
-        <activity android:name=".activity.StudentDetailsActivity"></activity>
-        <activity android:name=".activity.StudentsActivity"></activity>
-        <activity android:name=".activity.FeedsActivity"></activity>
-        <activity android:name=".BaseActivity"></activity>
     </application>
 
 </manifest>
