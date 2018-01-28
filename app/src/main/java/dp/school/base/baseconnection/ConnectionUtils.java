@@ -7,7 +7,6 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
@@ -22,14 +21,13 @@ import java.util.Map;
 import dp.school.R;
 import dp.school.base.AppController;
 
-/**
- * Created by PC on 19/12/2017.
- */
+
 
 public class ConnectionUtils {
     private static final int CONNECTION_TIME_OUT = 8000;
     private static ConnectionUtils connectionPresenter = null;
-    Dialog dialog;
+    private static String AUTH_KEY = "kNWSzTpb5d3ZPILEsKUMsdPGsMEjtfcuDe6eBj8TFm365qyHzQvyX7IJRgbu9w6D";
+    private  Dialog dialog;
 
     private ConnectionUtils() {
 
@@ -44,7 +42,11 @@ public class ConnectionUtils {
         if (dialog == null) {
             dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            try {
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            }catch (NullPointerException e){
+                e.getStackTrace();
+            }
         }
 
         if (showLoadingBar) {
@@ -84,7 +86,7 @@ public class ConnectionUtils {
                     //TODO add the auth token
                 }
                 params.put("Accept", "application/json");
-                params.put("key", "kNWSzTpb5d3ZPILEsKUMsdPGsMEjtfcuDe6eBj8TFm365qyHzQvyX7IJRgbu9w6D");
+                params.put("key", AUTH_KEY);
                 return params;
             }
         };
