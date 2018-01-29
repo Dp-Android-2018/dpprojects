@@ -22,5 +22,11 @@ public class MenuViewHolder extends RecyclerView.ViewHolder {
     public MenuViewHolder(View view) {
         super(view);
         ButterKnife.bind(this, view);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

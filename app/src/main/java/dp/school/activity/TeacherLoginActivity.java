@@ -1,6 +1,7 @@
 package dp.school.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import dp.school.MainActivity;
 import dp.school.R;
 import dp.school.base.utils.SharePreferenceConstants;
 import dp.school.base.utils.SharedPreferenceUtils;
@@ -77,7 +79,8 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
     public void onTeacherLogined(TeacherResponse teacherResponse) {
         if(teacherRequest!=null)
         SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, teacherRequest);
-        Toast.makeText(this, "" + teacherResponse.getUser().getName(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(TeacherLoginActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -90,6 +93,8 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
         if(code==401) {
             UIUtils.showSweetAlertDialog(TeacherLoginActivity.this, SweetAlertDialog.ERROR_TYPE,getResources().getString(R.string.msg_wrong_password));
         }
+        Intent intent = new Intent(TeacherLoginActivity.this, MainActivity.class);
+        startActivity(intent);
     }
     private void autoLogin(){
         teacherRequest = (TeacherRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER,TeacherRequest.class);

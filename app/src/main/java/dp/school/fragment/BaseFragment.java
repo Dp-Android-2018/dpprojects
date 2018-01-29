@@ -1,4 +1,4 @@
-package dp.school;
+package dp.school.fragment;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -22,11 +22,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import dp.school.R;
 import dp.school.adapter.ClassAdapter;
 import dp.school.model.ClassResponse;
 
 
-public class TestFragment extends Fragment  {
+public class BaseFragment extends Fragment  {
     Toolbar androidToolbar;
     CollapsingToolbarLayout mCollapsingToolbarLayout;
     ActionBarDrawerToggle mDrawerToggle;

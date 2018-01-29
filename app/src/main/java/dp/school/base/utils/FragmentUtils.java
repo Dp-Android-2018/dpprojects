@@ -15,12 +15,14 @@ import dp.school.base.AppController;
  */
 
 public class FragmentUtils {
-    public static final int CONTENT_VIEW_ID = R.id.frame_layout;
+    public static final int CONTENT_VIEW_ID = R.id.fl_menu_container;
 
     public static void addFragment(Context context, Fragment fragment, String backStackString) {
         FragmentTransaction transaction = getFragmentManager(context).beginTransaction();
         if (!ValidationUtils.isEmpty(backStackString)) {
             transaction.addToBackStack(backStackString);
+        }else {
+            transaction.addToBackStack(null);
         }
         transaction.add(CONTENT_VIEW_ID, fragment).commit();
     }
@@ -40,6 +42,11 @@ public class FragmentUtils {
 
     public static FragmentManager getFragmentManager(Context context) {
         return ((FragmentActivity) context).getSupportFragmentManager();
+    }
+
+    public static void removeFragment(Context context){
+        FragmentManager fragmentManager = getFragmentManager(context);
+        fragmentManager.beginTransaction().remove(fragmentManager.findFragmentById(CONTENT_VIEW_ID)).commit();
     }
 
     public static void removeAllFragments(Context context) {

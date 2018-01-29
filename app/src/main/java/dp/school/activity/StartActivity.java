@@ -22,7 +22,7 @@ import dp.school.base.views.AnimatedButtonView;
 import dp.school.base.views.OnAnimatedButtonListener;
 
 
-public class MainActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
     public static int TEACHER_SELECTED = 1, STUDENT_SELECTED = 2, PARENT_SELECTED = 3;
     int selectedTab = -1;
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         if (isAnimationEnabled) {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                UIUtils.revealButton(MainActivity.this,loginAnimatedButton,revealView);
+                                UIUtils.revealButton(StartActivity.this,loginAnimatedButton,revealView);
                             }
                             delayedStartNextActivity();
                         }
@@ -148,11 +148,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (selectedTab == STUDENT_SELECTED) {
-                    startActivity(new Intent(MainActivity.this, StudentLoginActivity.class));
+                    startActivity(new Intent(StartActivity.this, StudentLoginActivity.class));
                 } else if (selectedTab == PARENT_SELECTED) {
-                    startActivity(new Intent(MainActivity.this, ParentLoginActivity.class));
+                    startActivity(new Intent(StartActivity.this, ParentLoginActivity.class));
                 } else if (selectedTab == TEACHER_SELECTED) {
-                    startActivity(new Intent(MainActivity.this, TeacherLoginActivity.class));
+                    startActivity(new Intent(StartActivity.this, TeacherLoginActivity.class));
                 }
                 finish();
             }

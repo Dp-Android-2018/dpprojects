@@ -16,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.holder.MenuViewHolder;
+import dp.school.listener.OnMenuItemClickListener;
 import dp.school.model.MenuItem;
 import dp.school.response.studentresponse.StudentResponse;
 
@@ -27,6 +28,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
 
     ArrayList<MenuItem> menuItems;
     private Context context;
+    private OnMenuItemClickListener onMenuItemClickListener=null;
 
     public MenuAdapter(Context context, ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
@@ -37,6 +39,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
     public MenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu, parent, false);
         MenuViewHolder viewHolder = new MenuViewHolder(v);
+
         return viewHolder;
     }
 
@@ -44,6 +47,17 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
     public void onBindViewHolder(MenuViewHolder holder, final int position) {
         holder.icon.setImageResource(menuItems.get(position).getResourceId());
         holder.title.setText(menuItems.get(position).getTitle());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onMenuItemClickListener!=null)
+                onMenuItemClickListener.onMenuItemClicked(position);
+            }
+        });
+    }
+
+    public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener){
+        this.onMenuItemClickListener = onMenuItemClickListener;
     }
 
     @Override

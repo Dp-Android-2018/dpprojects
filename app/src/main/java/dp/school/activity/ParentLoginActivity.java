@@ -1,16 +1,13 @@
 package dp.school.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,13 +15,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dp.school.R;
-import dp.school.StartActivity;
 import dp.school.base.utils.SharePreferenceConstants;
 import dp.school.base.utils.SharedPreferenceUtils;
 import dp.school.base.utils.UIUtils;
 import dp.school.base.utils.ValidationUtils;
 import dp.school.base.views.AnimatedButtonView;
-import dp.school.base.views.OnAnimatedButtonListener;
 import dp.school.presenter.ParentPresenter;
 import dp.school.request.ParentRequest;
 import dp.school.response.parentresponse.ParentResponse;

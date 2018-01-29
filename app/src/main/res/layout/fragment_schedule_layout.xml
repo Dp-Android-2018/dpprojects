@@ -5,15 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_action_bar"
-      />
-
-    <GridView
+    <dp.school.base.views.HorizontalCalenderView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="auto_fit"
-        android:layout_margin="@dimen/dp10w"
-        android:verticalSpacing="@dimen/dp5w"
-        android:horizontalSpacing="@dimen/dp5w"
-        tools:listitem="@layout/item_picture_layout"></GridView>
+        tools:listitem="@layout/item_schedule"/>
+
 </LinearLayout>

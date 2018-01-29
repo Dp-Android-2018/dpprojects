@@ -2,17 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_start_main_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dp.school.StartActivity">
-
-
+    android:background="@color/colorWhite"
+    tools:context="dp.school.MainActivity">
 
     <FrameLayout
-
-        android:id="@+id/frame_layout"
+        android:id="@+id/fl_menu_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <RelativeLayout
         android:id="@+id/rl_start_header"
@@ -28,22 +27,15 @@
             android:layout_marginStart="@dimen/dp2w"
             android:src="@drawable/ic_action_menu" />
 
-        <ImageView
-            android:id="@+id/iv_start_chat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/dp2w"
-            android:src="@drawable/ic_action_chat" />
+
     </RelativeLayout>
 
     <com.eightbitlab.bottomnavigationbar.BottomNavigationBar
-        android:layout_alignParentBottom="true"
         android:id="@+id/nb_start_tabs_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@color/colorWhite"
         app:activeTabColor="@color/colorPrimary"
-        app:inactiveTabColor="@color/colorGray"/>
+        app:inactiveTabColor="@color/colorGray" />
 </RelativeLayout>
