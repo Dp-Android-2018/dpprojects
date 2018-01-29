@@ -204,12 +204,12 @@
     </RelativeLayout>
 
     <View
+        android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp1h"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/rl_upload_assignment"
-        android:background="@color/colorGray"
-        android:id="@+id/view4"
-        />
+        android:background="@color/colorGray" />
 
 
     <Button

@@ -30,11 +30,11 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
 
     public MenuAdapter(Context context, ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
-        this.context=context;
+        this.context = context;
     }
 
     @Override
-    public  MenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu, parent, false);
         MenuViewHolder viewHolder = new MenuViewHolder(v);
         return viewHolder;
@@ -42,9 +42,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuViewHolder> {
 
     @Override
     public void onBindViewHolder(MenuViewHolder holder, final int position) {
-       //holder.icon.setText(studentItems.get(position).getUser().getName());
+        holder.icon.setImageResource(menuItems.get(position).getResourceId());
         holder.title.setText(menuItems.get(position).getTitle());
-
     }
 
     @Override
