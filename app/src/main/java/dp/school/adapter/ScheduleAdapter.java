@@ -14,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.model.ScheduleResponse;
+import dp.school.response.studentresponse.StudentResponse;
 
 /**
  * Created by PC on 27/12/2017.
@@ -58,6 +59,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ClassV
         public ClassViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+
         }
     }
 }
