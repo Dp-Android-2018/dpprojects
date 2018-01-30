@@ -9,16 +9,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.test.suitebuilder.annotation.SmallTest;
-import android.text.style.TextAppearanceSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -43,7 +37,7 @@ public class BaseFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_test, container, false);
+        rootView = inflater.inflate(R.layout.fragment_base, container, false);
         initToolbar();
         initInstances();
 
