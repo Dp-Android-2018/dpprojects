@@ -14,4 +14,7 @@ public class WebServiceConstants {
     public static final String TEACHER_LOGIN = TEACHER_URL+"login";
     public static final String STUDENT_LOGIN = STUDENT_URL+"login";
     public static final String PARENT_LOGIN = PARENT_URL+"login";
+    public static final String ABOUT_US_URL = STUDENT_URL+"aboutUs";
+    public static final String PICTURES_URL = STUDENT_URL+"getPictures";
+    public static final String VIDEOS_URL = STUDENT_URL+"getVideos";
 }

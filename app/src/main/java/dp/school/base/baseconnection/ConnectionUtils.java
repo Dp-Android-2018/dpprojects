@@ -57,6 +57,7 @@ public class ConnectionUtils {
         try {
             String requestString = new Gson().toJson(requestData);
             jsonObject = new JSONObject(requestString);
+
             System.out.println("Request : " + requestString);
         } catch (Exception e) {
             e.getStackTrace();
@@ -86,6 +87,7 @@ public class ConnectionUtils {
                     //TODO add the auth token
                 }
                 params.put("Accept", "application/json");
+                params.put("Content-Type", "application/json");
                 params.put("key", AUTH_KEY);
                 return params;
             }

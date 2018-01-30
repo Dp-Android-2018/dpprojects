@@ -2,7 +2,7 @@ package dp.school.model;
 
 import android.content.Context;
 
-import dp.school.base.baseconnection.ConnectionManager;
+
 import dp.school.base.baseconnection.ConnectionView;
 import dp.school.request.UserRequest;
 

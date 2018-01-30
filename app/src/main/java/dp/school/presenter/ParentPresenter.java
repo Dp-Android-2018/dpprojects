@@ -2,8 +2,10 @@ package dp.school.presenter;
 
 import android.content.Context;
 
-import dp.school.base.baseconnection.ConnectionManager;
+import dp.school.base.baseconnection.ConnectionUtils;
 import dp.school.base.baseconnection.ConnectionView;
+import dp.school.request.ParentRequest;
+import dp.school.response.parentresponse.ParentResponse;
 import dp.school.views.ParentPresenterView;
 import dp.school.views.ParentView;
 
@@ -16,11 +18,11 @@ public class ParentPresenter implements ParentPresenterView {
     }
 
     @Override
-    public void onValidateParent(String phone) {
-        ConnectionManager.getInstance().createConnection(phone, "url", true, true, new ConnectionView() {
+    public void onValidateParentPhone(ParentRequest parentRequest) {
+        ConnectionUtils.getInstance().createConnection(parentRequest, "url", true, true, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
-                parentView.onParentValidated();
+                parentView.onParentCodeValidated();
             }
 
             @Override
@@ -37,8 +39,8 @@ public class ParentPresenter implements ParentPresenterView {
     }
 
     @Override
-    public void onChangeParentPassword(String password) {
+    public void onValidateParentCode(String password) {
 
-        parentView.onPasswordChanged();
+        parentView.onParentCodeValidated();
     }
 }

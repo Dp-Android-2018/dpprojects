@@ -1,38 +1,54 @@
 package dp.school.activity;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dp.school.Main2Activity;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import dp.school.R;
-import dp.school.StartActivity;
+import dp.school.base.utils.SharePreferenceConstants;
+import dp.school.base.utils.SharedPreferenceUtils;
 import dp.school.base.utils.UIUtils;
 import dp.school.base.utils.ValidationUtils;
 import dp.school.base.views.AnimatedButtonView;
-import dp.school.base.views.OnAnimatedButtonListener;
 import dp.school.presenter.ParentPresenter;
+import dp.school.request.ParentRequest;
+import dp.school.response.parentresponse.ParentResponse;
 import dp.school.views.ParentView;
 
 public class ParentLoginActivity extends AppCompatActivity implements ParentView {
 
+    String code = null;
+    boolean validated=false;
+    @BindView(R.id.et_parent_login_password)
+    EditText passwordEditText;
+    @BindView(R.id.iv_parent_login_password_entered)
+    ImageView passwordImageView;
+    @BindView(R.id.rl_parent_phone_container)
+    RelativeLayout phoneContainerLayout;
+    @BindView(R.id.rl_parent_password_container)
+    RelativeLayout passwordContainerLayout;
     @BindView(R.id.et_parent_login_phone)
     EditText phoneEditText;
     @BindView(R.id.iv_parent_login_phone_entered)
     ImageView phoneImageView;
     @BindView(R.id.abv_main_login)
     AnimatedButtonView loginAnimatedButton;
+    @BindView(R.id.tv_parent_login_sms_message)
+    TextView smsMessageTextView;
+
     ParentPresenter parentPresenter;
+    ParentResponse parentResponse;
+    ParentRequest parentRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,50 +59,60 @@ public class ParentLoginActivity extends AppCompatActivity implements ParentView
         setMoveAnimation();
         handelEditTextListener();
         setEvents();
+        autoLogin();
+    }
+
+
+    @Override
+    public void onParentPhoneValidated(ParentResponse parentResponse) {
+        this.parentResponse = parentResponse;
+        code = parentResponse.getUser().getCode();
+        phoneContainerLayout.setVisibility(View.GONE);
+        passwordContainerLayout.setVisibility(View.VISIBLE);
+        if(parentRequest!=null) {
+            smsMessageTextView.setText(getResources().getString(R.string.msg_have_sms) + " " + parentRequest.getPhone());
+            smsMessageTextView.setVisibility(View.VISIBLE);
+            loginAnimatedButton.setTitle(getResources().getString(R.string.action_login));
+        }
+        validated=true;
     }
 
     @Override
-    public void onPasswordChanged() {
-
-    }
-
-    @Override
-    public void onParentValidated() {
-
+    public void onParentCodeValidated() {
+        if(parentRequest!=null) {
+            SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_PARENT, SharePreferenceConstants.PREF_PARENT, parentRequest);
+        }
     }
 
     @Override
     public Context getContext() {
-        return this;
+        return ParentLoginActivity.this;
     }
 
     @Override
     public void onError(int code, String messageError) {
-
+        if (code == 401) {
+            UIUtils.showSweetAlertDialog(ParentLoginActivity.this, SweetAlertDialog.ERROR_TYPE, getResources().getString(R.string.msg_wrong_password));
+        }
     }
 
-   /* @Override
-    public void onError(String messageError) {
-
-    }*/
-
-
     private void setEvents() {
-        loginAnimatedButton.setOnAnimatedButtonListener(new OnAnimatedButtonListener() {
+        loginAnimatedButton.getButton().setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onAnimationEnd(final boolean isAnimationEnabled) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isAnimationEnabled) {
-                            Intent intent = new Intent(ParentLoginActivity.this, StartActivity.class);
-                            startActivity(intent);
-                        }
+            public void onClick(View v) {
+                if(validated){
+                    if(passwordEditText.getText().toString().equals(parentResponse.getUser().getCode())) {
+                        parentPresenter.onValidateParentCode(passwordEditText.getText() + "");
+                    }else {
+                        UIUtils.showSweetAlertDialog(ParentLoginActivity.this,SweetAlertDialog.ERROR_TYPE,getResources().getString(R.string.msg_wrong_code));
                     }
-                }, 50);
+                }else {
+                    parentRequest = new ParentRequest();
+                    parentRequest.setPhone(phoneEditText.getText() + "");
+                    parentPresenter.onValidateParentPhone(parentRequest);
+                }
             }
         });
-        loginAnimatedButton.setAnimationEnabled(AnimatedButtonView.NO_DRAWABLE);
     }
 
     private void handelEditTextListener() {
@@ -97,5 +123,12 @@ public class ParentLoginActivity extends AppCompatActivity implements ParentView
         ArrayList<View> animatedViews = new ArrayList<>();
         animatedViews.add(phoneEditText);
         UIUtils.startMoveAnimation(this, animatedViews);
+    }
+
+    private void autoLogin(){
+        parentRequest = (ParentRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_PARENT, SharePreferenceConstants.PREF_PARENT,ParentRequest.class);
+        if(parentRequest!=null) {
+            parentPresenter.onValidateParentPhone(parentRequest);
+        }
     }
 }

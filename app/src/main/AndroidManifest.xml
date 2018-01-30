@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
-        <activity android:name=".activity.ParentLoginActivity" />
         <activity android:name=".activity.StudentLoginActivity" />
         <activity android:name=".activity.TeacherLoginActivity" />
         <activity android:name=".activity.AssignmentsActivity" />
