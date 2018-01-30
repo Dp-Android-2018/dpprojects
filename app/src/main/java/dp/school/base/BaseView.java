@@ -8,5 +8,5 @@ import android.content.Context;
 
 public interface BaseView {
     Context getContext();
-    void onError(int code ,String messageError);
+    void onError(String messageError);
 }

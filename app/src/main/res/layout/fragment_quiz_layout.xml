@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="@dimen/dp250w"
+    android:layout_height="wrap_content"
+    android:background="@drawable/et_quiz_background"
+    android:layout_marginTop="@dimen/dp10h"
+    android:layout_marginStart="@dimen/dp15h"
+    android:layout_marginEnd="@dimen/dp15h">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:textColorHint="@color/colorBlack"
+        android:textStyle="bold"
+        android:paddingStart="@dimen/dp10w"
+        android:paddingEnd="@dimen/dp5w"
+        android:paddingTop="@dimen/dp5h"
+
+       />
+</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chapter 1,revision"
+        android:layout_marginTop="@dimen/dp2h"
+        android:textColor="@color/colorGray"
+        android:layout_marginStart="@dimen/dp25w"
+        android:textSize="14sp"/>
+
+    <EditText
+
+        android:layout_marginStart="@dimen/dp15h"
+        android:layout_marginEnd="@dimen/dp15h"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp120h"
+        android:layout_marginTop="@dimen/dp25h"
+        android:padding="@dimen/dp5h"
+        android:hint="Description"
+        android:gravity="start"
+        android:textColorHint="@color/colorBlack"
+        android:textStyle="bold"
+        android:paddingStart="@dimen/dp10w"
+        android:paddingEnd="@dimen/dp5w"
+        android:paddingTop="@dimen/dp5h"
+        android:background="@drawable/et_quiz_background"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notes for students"
+        android:layout_marginTop="@dimen/dp2h"
+        android:textColor="@color/colorGray"
+        android:layout_marginStart="@dimen/dp25w"
+        android:textSize="14sp"/>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_upload_assignment"
+         android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dp15w"
+        android:layout_marginEnd="@dimen/dp15w"
+        android:layout_marginTop="@dimen/dp10h">
+
+        <TextView
+            android:id="@+id/tv_file_upload"
+            android:layout_below="@+id/tv_finish_assignment"
+            android:layout_marginTop="@dimen/dp25h"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/file_upload"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_centerVertical="true"
+
+
+
+            />
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_marginTop="@dimen/dp25h"
+            android:layout_width="@dimen/dp70h"
+            android:layout_height="@dimen/dp20h"
+            android:layout_below="@+id/tv_finish_assignment"
+            android:layout_toEndOf="@+id/tv_file_upload"
+            android:background="@drawable/btn_rounded_assignment"
+            android:text="@string/upload"
+            android:textAllCaps="false"
+
+            android:layout_marginStart="@dimen/dp15w"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginStart="@dimen/dp15h"
+        android:layout_marginEnd="@dimen/dp15h"
+        android:layout_width="@dimen/dp250w"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_quiz_background"
+        android:layout_marginTop="@dimen/dp25h">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Final Grade"
+            android:textColorHint="@color/colorBlack"
+            android:textStyle="bold"
+            android:paddingStart="@dimen/dp10w"
+            android:paddingEnd="@dimen/dp5w"
+            android:paddingTop="@dimen/dp5h"
+
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quiz Grade"
+        android:layout_marginTop="@dimen/dp2h"
+        android:textColor="@color/colorGray"
+        android:layout_marginStart="@dimen/dp25w"
+        android:textSize="14sp"/>
+
+    <Button
+        android:layout_width="@dimen/dp120h"
+        android:layout_height="@dimen/dp35h"
+        android:id="@+id/btn_send"
+
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_marginBottom="@dimen/dp15h"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_rounded_assignment"
+        android:text="@string/send"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+
+</LinearLayout>

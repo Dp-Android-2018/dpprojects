@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    android:gravity="center">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/iv_student_photo"
+        android:layout_width="@dimen/dp120w"
+        android:layout_height="@dimen/dp120h"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user_temp"
+        app:civ_border_color="@color/colorGray"
+        app:civ_border_width="@dimen/dp2w"
+        app:civ_shadow="true"
+        app:civ_shadow_color="@color/colorGray"
+        app:civ_shadow_radius="5" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:gravity="center"
+        android:text="Student Name"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5h"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:gravity="center"
+        android:text="Class Number 1"
+
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"/>
+
+    <View
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:background="@color/colorGray"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:id="@+id/rl_attendance"
+        android:layout_marginTop="@dimen/dp10h">
+        <TextView
+            android:id="@+id/tv_attendance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attendence"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:layout_below="@+id/tv_attendance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp2h"
+
+            android:text="attendence and absence for student"
+
+            android:textSize="12sp"
+            android:textColor="@color/colorBlack"/>
+        <android.support.v7.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+           />
+    </RelativeLayout>
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:background="@color/colorGray"
+        android:layout_marginTop="@dimen/dp10h"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:id="@+id/rl_student_of_day"
+        android:layout_marginTop="@dimen/dp10h">
+        <TextView
+            android:id="@+id/tv_studenT_of_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student of day"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:layout_below="@+id/tv_studenT_of_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp2h"
+
+            android:text="Choose The best Student"
+
+            android:textSize="12sp"
+            android:textColor="@color/colorBlack"/>
+        <ImageView
+            android:layout_width="@dimen/dp25w"
+            android:layout_height="@dimen/dp25h"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/iv_star"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:background="@color/colorGray"
+        android:layout_marginTop="@dimen/dp10h"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:id="@+id/rl_permission"
+        android:layout_marginTop="@dimen/dp10h">
+        <TextView
+            android:id="@+id/tv_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Permission"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:layout_below="@+id/tv_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp2h"
+
+            android:text="There is a permission for an execuse"
+
+            android:textSize="12sp"
+            android:textColor="@color/colorBlack"/>
+        <android.support.v7.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+</LinearLayout>

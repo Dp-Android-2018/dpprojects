@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_action_bar"/>
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/iv_student_photo"
+        android:layout_width="@dimen/dp100w"
+        android:layout_height="@dimen/dp100h"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user_temp"
+        app:civ_border_color="@color/colorGray"
+        app:civ_border_width="@dimen/dp4w"
+        app:civ_shadow="true"
+        app:civ_shadow_color="@color/colorGray"
+        app:civ_shadow_radius="5" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:gravity="center"
+        android:text="Student Name"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"/>
+
+    <Button
+        android:layout_width="@dimen/dp120h"
+        android:layout_height="@dimen/dp35h"
+
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_marginBottom="@dimen/dp15h"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_rounded_assignment"
+        android:text="file download"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp15h"
+            android:layout_marginStart="@dimen/dp10w"
+            android:layout_marginEnd="@dimen/dp10w"
+            android:gravity="center"
+            android:text="Grade : 50"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp3h"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_marginEnd="@dimen/dp10w"
+        android:gravity="center"
+        android:text="Assignment Grade"
+
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp125h"
+        android:layout_height="@dimen/dp60h"
+        android:layout_marginStart="@dimen/dp15w"
+        android:layout_marginEnd="@dimen/dp15w"
+        android:layout_marginTop="@dimen/dp5h"
+        android:background="@drawable/ll_grade_background"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/et_grade"
+            android:layout_width="@dimen/dp80h"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:gravity="center"
+            android:textColor="@color/colorLightBlue"
+            android:paddingTop="@dimen/dp15h"
+            android:paddingBottom="@dimen/dp15h"
+            android:background="@android:color/transparent"/>
+        <View
+            android:id="@+id/view1"
+            android:layout_width="@dimen/dp2w"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightBlue"
+            android:layout_toEndOf="@+id/et_grade"
+            android:layout_marginStart="@dimen/dp3w"/>
+        <ImageView
+            android:layout_width="@dimen/dp15h"
+            android:layout_height="@dimen/dp15h"
+            android:src="@drawable/ic_top_arrow"
+            android:layout_toEndOf="@+id/view1"
+            android:layout_marginStart="@dimen/dp5w"
+            android:layout_marginEnd="@dimen/dp5w"
+            android:layout_marginTop="@dimen/dp5h"
+
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp15h"
+            android:layout_height="@dimen/dp15h"
+            android:src="@drawable/ic_top_arrow"
+            android:layout_toEndOf="@+id/view1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/dp5w"
+            android:layout_marginEnd="@dimen/dp5w"
+            android:layout_marginTop="@dimen/dp5h"
+            android:layout_marginBottom="@dimen/dp5h"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_width="@dimen/dp120h"
+        android:layout_height="@dimen/dp35h"
+
+        android:layout_marginTop="@dimen/dp25h"
+        android:layout_marginBottom="@dimen/dp10h"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_rounded_assignment"
+        android:text="@string/send"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+
+</LinearLayout>

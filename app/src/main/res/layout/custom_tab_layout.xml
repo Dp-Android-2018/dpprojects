@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="@dimen/dp40h"
+    android:layout_marginTop="@dimen/dp10h"
+    android:layout_marginStart="@dimen/dp25w"
+    android:layout_marginEnd="@dimen/dp25w"
+    android:orientation="horizontal"
+    android:background="@drawable/tablayout_rounded_background"
+    android:weightSum="3">
+
+   <LinearLayout
+       android:id="@+id/ll1"
+       android:layout_width="0dp"
+       android:layout_height="match_parent"
+       android:layout_weight="1"
+       android:orientation="horizontal"
+       android:background="@drawable/tab1_selector_background">
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text="@string/quizzes"
+           android:gravity="center"
+           android:textColor="@color/colorLightBlue"
+           android:paddingStart="@dimen/dp10h"
+           android:textSize="14sp"
+           android:textStyle="bold"
+           android:layout_weight="1"
+
+           />
+
+       <View
+           android:layout_width="1dp"
+           android:layout_height="match_parent"
+           android:background="@color/colorLightBlue"
+           android:paddingStart="@dimen/dp10h"
+           android:layout_marginStart="@dimen/dp10h"
+
+           />
+   </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+            <TextView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:gravity="center"
+           android:text="@string/quizzes"
+                android:textColor="@color/colorLightBlue"
+           android:paddingStart="@dimen/dp10h"
+           android:textSize="14sp"
+           android:textStyle="bold"
+           android:layout_weight="1"
+           />
+
+       <View
+           android:layout_width="1dp"
+           android:layout_height="match_parent"
+           android:background="@color/colorLightBlue"
+           android:paddingStart="@dimen/dp10h"
+           android:layout_marginStart="@dimen/dp10h"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text="@string/quizzes"
+           android:gravity="center"
+           android:textColor="@color/colorLightBlue"
+           android:paddingStart="@dimen/dp10h"
+           android:textSize="14sp"
+           android:textStyle="bold"
+
+           />
+    </LinearLayout>
+
+   </LinearLayout>
