@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class MediaResponse {
-    @SerializedName(value = "pictures", alternate = "videos")
+    @SerializedName(value = "pictures", alternate ="videos")
     private MediaContents media;
 
     public MediaContents getMedia() {
