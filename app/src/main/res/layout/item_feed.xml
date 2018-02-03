@@ -20,12 +20,31 @@
             android:layout_height="@dimen/dp150h"
             android:scaleType="fitXY"
             android:src="@drawable/temp_students" />
+        <TextView
+            android:id="@+id/tv_feed_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feed Title"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@+id/iv_feed_photo"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_feed_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp1h"
+            android:text="Feed Title"
+            android:textColor="@color/colorBlack"
+            android:layout_below="@+id/tv_feed_title"
+            android:textSize="12sp" />
+
 
         <TextView
             android:id="@+id/tv_feed_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_feed_photo"
+           android:layout_below="@+id/tv_feed_sub_title"
             android:layout_margin="@dimen/dp2w"
             android:text="Lorem ipsum dolor sit amet, consector adipicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqa. Ut num ad vertual btubs"
             android:textColor="@color/colorPrimary" />

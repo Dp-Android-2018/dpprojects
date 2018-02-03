@@ -18,10 +18,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:replace="android:icon">
         <activity android:name=".activity.StartActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
         <activity android:name=".activity.StudentLoginActivity" />
@@ -38,7 +35,12 @@
         <activity android:name=".activity.PaymentActivity"></activity>
         <activity android:name=".activity.StudentDetailsActivity" />
         <activity android:name=".activity.StudentsActivity" />
-        <activity android:name=".activity.FeedsActivity" />
+        <activity android:name=".activity.FeedsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".BaseActivity" />
         <activity android:name=".MenuActivity">
 

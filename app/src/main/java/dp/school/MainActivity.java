@@ -1,5 +1,6 @@
 package dp.school;
 
+import android.app.Fragment;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -116,9 +117,10 @@ public class MainActivity extends AppCompatActivity {
                 } else if (position == 2) {
                     Snackbar.make(mainHolderRelativeLayout,"Message",Snackbar.LENGTH_LONG).show();
                 } else if (position == 3) {
-                    FragmentUtils.addFragment(MainActivity.this,new PictureGalleryFragment(),"");
+                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(true),"");
+
                 } else if (position == 4) {
-                    FragmentUtils.addFragment(MainActivity.this,new PictureGalleryFragment(),"");
+                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(false),"");
                 } else if (position == 5) {
 
                 } else if (position == 6) {
@@ -143,5 +145,13 @@ public class MainActivity extends AppCompatActivity {
                 .inject();
         slideMenuView.closeMenu(false);
         setUpMenu();
+    }
+
+    public android.support.v4.app.Fragment passDataToGallery(Boolean pic){
+        android.support.v4.app.Fragment pictureGallery=new PictureGalleryFragment();
+        Bundle b=new Bundle();
+        b.putBoolean("Pic",pic);
+        pictureGallery.setArguments(b);
+        return pictureGallery;
     }
 }

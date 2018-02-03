@@ -1,12 +1,14 @@
 package dp.school.presenter.Implementation;
 
 import android.content.Context;
+import android.media.browse.MediaBrowser;
 
 import com.google.gson.Gson;
 
 import dp.school.base.baseconnection.ConnectionUtils;
 import dp.school.base.baseconnection.ConnectionView;
 import dp.school.base.baseconnection.WebServiceConstants;
+import dp.school.model.MediaModel;
 import dp.school.presenter.PresenterInterface.AboutPresenterInterface;
 import dp.school.request.BaseRequest;
 import dp.school.response.AboutUsResponse;
@@ -30,6 +32,7 @@ public class AboutPresenter implements AboutPresenterInterface {
         ConnectionUtils.getInstance().createConnection(baseRequest, WebServiceConstants.ABOUT_US_URL, true, true, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
+
                 aboutUsView.displayAboutUs(new Gson().fromJson(response,AboutUsResponse.class));
             }
 
