@@ -1,12 +1,17 @@
 package dp.school;
 
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eightbitlab.bottomnavigationbar.BottomBarItem;
 import com.eightbitlab.bottomnavigationbar.BottomNavigationBar;
@@ -18,6 +23,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dp.school.activity.FeedDetailsActivity;
 import dp.school.adapter.MenuAdapter;
 import dp.school.base.utils.FragmentUtils;
 import dp.school.fragment.AboutUsFragment;
@@ -28,18 +34,26 @@ import dp.school.listener.OnMenuItemClickListener;
 import dp.school.model.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.nb_start_tabs_container)
+    @BindView(R.id.nb_main_tabs_container)
     BottomNavigationBar bottomNavigationBar;
     @BindView(R.id.rl_start_main_holder)
     RelativeLayout mainHolderRelativeLayout;
+    @BindView(R.id.rl_main_header)
+    RelativeLayout headerLayout;
+    @BindView(R.id.fl_menu_container)
+    FrameLayout containerLayout;
+    @BindView(R.id.tv_main_title)
+    TextView titleText;
     SlidingRootNav slideMenuView;
     RecyclerView menuList;
     View menuView;
+    ArrayList<MenuItem> menuItems;
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
         setBottomTabs();
@@ -47,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         setMenu();
 
     }
-    private void setBottomTabs(){
+
+    private void setBottomTabs() {
         BottomBarItem feedsTab = new BottomBarItem(R.drawable.ic_feed_off, R.string.tab_feeds);
         BottomBarItem scheduleTab = new BottomBarItem(R.drawable.ic_calender_off, R.string.tab_schedule);
         BottomBarItem topStudent = new BottomBarItem(R.drawable.ic_student_off, R.string.tab_top_student);
@@ -59,28 +74,39 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    private void setBottomTabEvent(){
+
+    private void setBottomTabEvent() {
         bottomNavigationBar.setOnSelectListener(new BottomNavigationBar.OnSelectListener() {
             @Override
             public void onSelect(int position) {
                 FragmentUtils.removeFragment(MainActivity.this);
-                if(position==0)
+                String title="";
+
+
+                if (position == 0) {
                     FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
-                else if(position==1)
+                }
+                else if (position == 1) {
                     FragmentUtils.addFragment(MainActivity.this, new ScheduleFragment(), "");
-
-                else if(position==2)
+                    title = getResources().getString(R.string.tab_schedule);
+                }
+                else if (position == 2) {
                     FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
+                    title = getResources().getString(R.string.tab_schedule);
+                }
+                else if (position == 3) {
+                    FragmentUtils.addFragment(MainActivity.this, new PictureGalleryFragment(), "");
+                    title = getResources().getString(R.string.tab_feeds);
+                }
 
-                else if(position==3)
-                    FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
-
+                setHeaderTitleConfigurations(position,title);
 
             }
         });
     }
+
     private ArrayList<MenuItem> getMenuItems() {
-        ArrayList<MenuItem> menuItems = new ArrayList<>();
+        menuItems = new ArrayList<>();
         menuItems.add(new MenuItem(getResources().getString(R.string.menu_profile), R.drawable.ic_menu_profile));
         menuItems.add(new MenuItem(getResources().getString(R.string.menu_about_us), R.drawable.ic_menu_about_us));
         menuItems.add(new MenuItem(getResources().getString(R.string.menu_message), R.drawable.ic_menu_message));
@@ -103,22 +129,40 @@ public class MainActivity extends AppCompatActivity {
         setMenuEvents();
     }
 
+    private void setHeaderTitleConfigurations(int position , String title) {
+
+        if (position != 0) {
+            titleText.setVisibility(View.VISIBLE);
+            headerLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.addRule(RelativeLayout.BELOW, R.id.rl_main_header);
+            containerLayout.setLayoutParams(params);
+        } else {
+            titleText.setVisibility(View.GONE);
+            headerLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            containerLayout.setLayoutParams(params);
+        }
+        titleText.setText(title);
+
+    }
+
     private void setMenuEvents() {
         menuAdapter.setOnMenuItemClickListener(new OnMenuItemClickListener() {
             @Override
             public void onMenuItemClicked(int position) {
                 FragmentUtils.removeFragment(MainActivity.this);
+                setHeaderTitleConfigurations(position,menuItems.get(position).getTitle());
                 if (position == 0) {
-                    // "" parameter for backstack mean that don't add me to back stack otherwise so add me with this text
-                    Snackbar.make(mainHolderRelativeLayout,"EditProfile",Snackbar.LENGTH_LONG).show();
+                    FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
                 } else if (position == 1) {
-                    FragmentUtils.addFragment(MainActivity.this,new AboutUsFragment(),"");
+                    FragmentUtils.addFragment(MainActivity.this, new AboutUsFragment(), "");
                 } else if (position == 2) {
-                    Snackbar.make(mainHolderRelativeLayout,"Message",Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(mainHolderRelativeLayout, "Message", Snackbar.LENGTH_LONG).show();
                 } else if (position == 3) {
-                    FragmentUtils.addFragment(MainActivity.this,new PictureGalleryFragment(),"");
+                    FragmentUtils.addFragment(MainActivity.this, new PictureGalleryFragment(), "");
                 } else if (position == 4) {
-                    FragmentUtils.addFragment(MainActivity.this,new PictureGalleryFragment(),"");
+                    FragmentUtils.addFragment(MainActivity.this, new PictureGalleryFragment(), "");
                 } else if (position == 5) {
 
                 } else if (position == 6) {
@@ -143,5 +187,27 @@ public class MainActivity extends AppCompatActivity {
                 .inject();
         slideMenuView.closeMenu(false);
         setUpMenu();
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            finish();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, getResources().getString(R.string.msg_double_click), Toast.LENGTH_SHORT).show();
+        setHeaderTitleConfigurations(0,menuItems.get(0).getTitle());
+        FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+
     }
 }

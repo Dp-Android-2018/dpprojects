@@ -1,171 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_start_main_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    android:orientation="vertical">
+    android:background="@color/colorWhite"
+    tools:context="dp.school.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/ll__main_head"
+    <FrameLayout
+        android:id="@+id/fl_menu_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp20h"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/rl_main_header"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/transparent">
 
         <ImageView
-            android:layout_width="@dimen/dp120w"
-            android:layout_height="@dimen/dp100h"
-            android:layout_gravity="center"
-            android:scaleType="centerInside"
-            android:src="@drawable/img_colored_logo"
-
-            />
+            android:id="@+id/iv_main_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp2w"
+            android:src="@drawable/ic_action_menu" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp20h"
-            android:gravity="center"
-            android:lines="1"
-            android:text="@string/title_welcome_main"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/sp15"
-            android:textStyle="bold"
-
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp5h"
-            android:gravity="center"
-            android:lines="1"
-            android:text="@string/msg_choose_main"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/sp15"
-            android:textStyle="normal" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/dp20h"
+            android:id="@+id/tv_main_title"
+            android:layout_toEndOf="@+id/iv_main_menu"
+            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp5w"
             android:layout_marginEnd="@dimen/dp5w"
-            android:weightSum="3">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite" />
 
-            <LinearLayout
-                android:id="@+id/ll_main_student_tab"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="@dimen/dp5w"
-                android:gravity="center"
-                android:orientation="vertical">
+    </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/iv_main_student_image"
-                    android:layout_width="@dimen/dp90w"
-                    android:layout_height="@dimen/dp90w"
-                    android:src="@drawable/img_checked_student" />
-
-                <TextView
-                    android:id="@+id/tv_main_student_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp3w"
-                    android:layout_weight="1"
-                    android:text="@string/label_main_student"
-                    android:textColor="@color/colorGray"
-                    android:textSize="@dimen/sp15"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_main_parent_tab"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp5w"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_main_parent_image"
-                    android:layout_width="@dimen/dp90w"
-                    android:layout_height="@dimen/dp90w"
-                    android:src="@drawable/img_checked_parent" />
-
-                <TextView
-                    android:id="@+id/tv_main_parent_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp3w"
-                    android:layout_weight="1"
-                    android:text="@string/label_main_parent"
-                    android:textColor="@color/colorGray"
-                    android:textSize="@dimen/sp15"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_main_teacher_tab"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="@dimen/dp5w"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_main_teacher_image"
-                    android:layout_width="@dimen/dp90w"
-                    android:layout_height="@dimen/dp90w"
-                    android:src="@drawable/img_checked_teacher" />
-
-                <TextView
-                    android:id="@+id/tv_main_teacher_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp3w"
-                    android:layout_weight="1"
-                    android:text="@string/label_main_teacher"
-                    android:textColor="@color/colorGray"
-                    android:textSize="@dimen/sp15"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-    <dp.school.base.views.AnimatedButtonView
-        android:id="@+id/abv_main_login"
-        android:layout_width="wrap_content"
+    <com.eightbitlab.bottomnavigationbar.BottomNavigationBar
+        android:id="@+id/nb_main_tabs_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="@dimen/dp64h"
-        app:abtn_text="@string/action_choose"
-        app:abtn_text_color="@color/colorPrimary" />
-
-
-    <View
-        android:id="@+id/v_main_reveal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:background="@color/colorWhite"
-        android:visibility="invisible" />
-
-
+        app:activeTabColor="@color/colorPrimary"
+        app:inactiveTabColor="@color/colorGray" />
 </RelativeLayout>
-

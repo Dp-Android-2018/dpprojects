@@ -65,4 +65,6 @@
     <string name="menu_log_out">LogOut</string>
     <string name="label_from">From</string>
     <string name="label_to">To</string>
+
+    <string name="msg_double_click">Please click BACK again to exit</string>
 </resources>

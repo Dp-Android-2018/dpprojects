@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/ll_about"
     android:orientation="vertical">
 
-
-
-
-    <TextView
-        android:id="@+id/tv_about_us_text"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp5w"
-        android:scrollbars="vertical"
-       android:text=""/>
+        android:layout_marginTop="@dimen/dp5w"
+        android:layout_marginStart="@dimen/dp5w"
+        android:layout_marginEnd="@dimen/dp5w">
+
+        <TextView
+            android:id="@+id/tv_about_us_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:scrollbars="vertical"
+            android:text="" />
+    </ScrollView>
+
+
 </LinearLayout>

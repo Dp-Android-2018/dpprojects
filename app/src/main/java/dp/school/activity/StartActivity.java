@@ -55,7 +55,7 @@ public class StartActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
         setEvents();
     }

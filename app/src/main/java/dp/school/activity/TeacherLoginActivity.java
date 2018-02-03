@@ -8,12 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dp.school.MainActivity;
 import dp.school.R;
+import dp.school.base.baseconnection.WebServiceConstants;
 import dp.school.base.utils.SharePreferenceConstants;
 import dp.school.base.utils.SharedPreferenceUtils;
 import dp.school.base.utils.UIUtils;
@@ -37,7 +40,8 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
     @BindView(R.id.abv_teacher_login)
     AnimatedButtonView loginAnimatedButton;
     TeacherPresenter teacherPresenter;
-    TeacherRequest teacherRequest=null;
+    TeacherRequest teacherRequest = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,12 +64,12 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
 
 
     private void setEvents() {
-      loginAnimatedButton.getButton().setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              login();
-          }
-      });
+        loginAnimatedButton.getButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login();
+            }
+        });
     }
 
     private void setMoveAnimation() {
@@ -77,8 +81,8 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
 
     @Override
     public void onTeacherLogined(TeacherResponse teacherResponse) {
-        if(teacherRequest!=null)
-        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, teacherRequest);
+        if (teacherRequest != null)
+            SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, teacherRequest);
         Intent intent = new Intent(TeacherLoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
@@ -89,16 +93,17 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
     }
 
     @Override
-    public void onError(int code ,String messageError) {
-        if(code==401) {
-            UIUtils.showSweetAlertDialog(TeacherLoginActivity.this, SweetAlertDialog.ERROR_TYPE,getResources().getString(R.string.msg_wrong_password));
+    public void onError(int code, String messageError) {
+        if (code == WebServiceConstants.UNAUTHORIZED) {
+            UIUtils.showSweetAlertDialog(TeacherLoginActivity.this, SweetAlertDialog.ERROR_TYPE, getResources().getString(R.string.msg_wrong_password));
         }
         Intent intent = new Intent(TeacherLoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
-    private void autoLogin(){
-        teacherRequest = (TeacherRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER,TeacherRequest.class);
-        if(teacherRequest!=null)
+
+    private void autoLogin() {
+        teacherRequest = (TeacherRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, TeacherRequest.class);
+        if (teacherRequest != null)
             teacherPresenter.onLoginTeacher(teacherRequest);
     }
 }
