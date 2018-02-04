@@ -23,7 +23,7 @@ import dp.school.model.gloabal.MonthItem;
  */
 
 public class HorizontalCalenderView extends LinearLayout {
-    public static String[] monthsNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    public static String[] monthsNames = {"Saturday", "Sunday", "Monday", "Tuesday", "Wedenesday", "Thursday", "Friday"};
     ArrayList<ArrayList<DayItem>> calenderDays;
     ArrayList<MonthItem> months;
     RecyclerView monthsRecycleView;

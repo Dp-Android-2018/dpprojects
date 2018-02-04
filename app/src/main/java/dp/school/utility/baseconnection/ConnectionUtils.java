@@ -43,16 +43,17 @@ public class ConnectionUtils {
 
 
 
-        if (showLoadingBar) {
+        /*if (showLoadingBar) {
             dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
             try {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
             }catch (NullPointerException e){
+                System.out.println("Catch 1 :"+e.getMessage());
                 e.getStackTrace();
             }
             dialog.show();
-        }
+        }*/
 
         JSONObject jsonObject = null;
         try {
@@ -61,6 +62,7 @@ public class ConnectionUtils {
 
             System.out.println("Request : " + requestString);
         } catch (Exception e) {
+            System.out.println("Catch 2 :"+e.getMessage());
             e.getStackTrace();
         }
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(method, url, jsonObject,
@@ -69,9 +71,9 @@ public class ConnectionUtils {
                     public void onResponse(JSONObject response) {
                         connectionView.onResponseSuccess(response.toString());
                         System.out.println("Response : " + response.toString());
-                        if(dialog!=null&&showLoadingBar) {
+                        /*if(dialog!=null&&showLoadingBar) {
                             dialog.cancel();
-                        }
+                        }*/
                     }
                 },
                 new Response.ErrorListener() {
@@ -79,9 +81,9 @@ public class ConnectionUtils {
                     public void onErrorResponse(VolleyError volleyError) {
                         if(getErrorMessage(volleyError)==null)
                             connectionView.onResponseError(volleyError.networkResponse.statusCode, getErrorMessage(volleyError));
-                        if(dialog!=null&&showLoadingBar) {
+                      /*  if(dialog!=null&&showLoadingBar) {
                             dialog.cancel();
-                        }
+                        }*/
                     }
                 }
         ) {
@@ -93,7 +95,8 @@ public class ConnectionUtils {
                     params.put("Accept", "application/json");
                     params.put("Content-Type", "application/json");
                     params.put("key", AUTH_KEY);
-                    params.put("Authorization","Bearer 7bqaeAu5aF5XrzNMKWDJfwKd7zxFG5FZ6HoV4PpXJ1139kSrE12iai59sLMq1paK");
+                 //   params.put("Authorization","Bearer 7bqaeAu5aF5XrzNMKWDJfwKd7zxFG5FZ6HoV4PpXJ1139kSrE12iai59sLMq1paK");
+                    params.put("Authorization","Bearer Mn1DKrcfrZ2yTIbFYISyc6N0Hoibe5GaA2RFVsIw8nU2s87c8wKhEqJEtM0dg1Vy");
                 }
 
                 return params;

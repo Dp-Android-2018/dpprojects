@@ -1,34 +1,48 @@
 package dp.school.views.ui.fragment;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import dp.school.R;
+import dp.school.model.response.teacherresponse.ClassesResponse;
+import dp.school.presenter.Implementation.ClassesPresenter;
+import dp.school.presenter.PresenterInterface.ClassPresenterIml;
 import dp.school.views.ui.adapter.ClassAdapter;
-import dp.school.model.gloabal.ClassResponse;
+import dp.school.views.viewInterface.ClassesView;
 
 
-public class BaseFragment extends Fragment  {
+public class BaseFragment extends Fragment implements ClassesView{
+    @BindView(R.id.toolbar_android)
     Toolbar androidToolbar;
-    CollapsingToolbarLayout mCollapsingToolbarLayout;
-    ActionBarDrawerToggle mDrawerToggle;
-    CoordinatorLayout mRootLayout;
-    RecyclerView classesRecycleView;
-    View rootView;
 
+    @BindView(R.id.collapsingToolbarLayoutAndroidExample)
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+
+    ActionBarDrawerToggle mDrawerToggle;
+
+    @BindView(R.id.coordinatorRootLayout)
+    CoordinatorLayout mRootLayout;
+
+    @BindView(R.id.rv_base_teacher_classes)
+    RecyclerView classesRecycleView;
+
+    View rootView;
+    ClassPresenterIml classPresenterIml;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,42 +52,24 @@ public class BaseFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_base, container, false);
-        initToolbar();
-        initInstances();
-
-        ArrayList<ClassResponse>classItems = new ArrayList<>();
-        for(int i=0; i<10; i++){
-            ClassResponse classResponse = new ClassResponse();
-            classResponse.setGrade("First grade");
-            classResponse.setName("Class name #"+(i+1));
-            classResponse.setNumberOfStudent(23+i+1*3);
-            classResponse.setHaveClass((i+1)%2==1);
-            classItems.add(classResponse);
-        }
-
-        classesRecycleView = rootView.findViewById(R.id.listView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        ClassAdapter classAdapter = new ClassAdapter(getActivity(),classItems);
-        classesRecycleView.setLayoutManager(layoutManager);
-        classesRecycleView.setAdapter(classAdapter);
+        ButterKnife.bind(this,rootView);
 
 
+//////////////////////////////Connect View To Presenter //////////////////////////////////////////////////
+        classPresenterIml=new ClassesPresenter(this);
+        classPresenterIml.getClassesData();
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////
+ ///////////////////////////Initialize Recycler /////////////////////////////////////////////////////
+        classesRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+  ///////////////////////////////////////////////////////////////////////////////////////////////////
         return rootView;
     }
 
 
-    private void initToolbar() {
-        androidToolbar = rootView.findViewById(R.id.toolbar_android);
-    }
 
-    private void initInstances() {
-        mRootLayout = rootView.findViewById(R.id.coordinatorRootLayout);
-        mCollapsingToolbarLayout = rootView.findViewById(R.id.collapsingToolbarLayoutAndroidExample);
-        mCollapsingToolbarLayout.setTitle("Mohamed Atef Abdo");
-        mCollapsingToolbarLayout.setCollapsedTitleGravity(Gravity.CENTER );
 
-    }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -81,4 +77,26 @@ public class BaseFragment extends Fragment  {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    public void onError(int code, String messageError) {
+        Snackbar.make(mRootLayout,messageError,Snackbar.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void getTeacherClasss(ClassesResponse classesResponse) {
+        notifyAdapterChanged(classesResponse);
+
+    }
+
+    public void notifyAdapterChanged(ClassesResponse classesResponse){
+        ClassAdapter classAdapter = new ClassAdapter(getActivity(),classesResponse.getClasses());
+        classesRecycleView.setAdapter(classAdapter);
+    }
+
+    @Nullable
+    @Override
+    public Context getContext() {
+        return getActivity();
+    }
 }
