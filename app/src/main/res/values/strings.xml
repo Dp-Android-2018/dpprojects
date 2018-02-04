@@ -66,6 +66,17 @@
     <string name="menu_log_out">LogOut</string>
     <string name="label_from">From</string>
     <string name="label_to">To</string>
+    <string name="no_permission">There is no a permission from the parent</string>
+    <string name="password">Password</string>
+    <string name="phone">phone</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="birthday">Birthday</string>
+    <string name="nationality">Nationality</string>
+    <string name="gender">Gender</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="msg_double_click">Please click BACK again to exit</string>
     <string name="label_phone_number">Phone Number</string>
     <string name="label_social_media">Social Media</string>

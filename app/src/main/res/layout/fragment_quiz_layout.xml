@@ -130,12 +130,24 @@
         android:textColor="@color/colorGray"
         android:layout_marginStart="@dimen/dp25w"
         android:textSize="14sp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="@dimen/dp25w"
+            android:layout_height="@dimen/dp25h"
+            android:src="@drawable/iv_star"
+            android:layout_toStartOf="@+id/btn_send"
+            android:layout_marginEnd="@dimen/dp25h"
+            android:layout_centerVertical="true"
+            />
     <Button
         android:layout_width="@dimen/dp120h"
         android:layout_height="@dimen/dp35h"
         android:id="@+id/btn_send"
-
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp15h"
         android:layout_marginBottom="@dimen/dp15h"
         android:gravity="center"
@@ -145,5 +157,6 @@
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
+    </RelativeLayout>
 
 </LinearLayout>

@@ -65,6 +65,16 @@
     <string name="menu_log_out">LogOut</string>
     <string name="label_from">From</string>
     <string name="label_to">To</string>
+    <string name="password">كلمة السر</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="email">البريد الالكترونى</string>
+    <string name="address">العنوان</string>
+    <string name="birthday">تاريخ الميلاد</string>
+    <string name="nationality">الجنسية</string>
+    <string name="gender">النوع</string>
+    <string name="old_password">كلمة السر القديمة</string>
+    <string name="new_password">كلمة السر الجديدة</string>
+    <string name="confirm_password">تأكيد كلمة السر</string>
 
-    <string name="msg_double_click">Please click BACK again to exit</string>
+
 </resources>

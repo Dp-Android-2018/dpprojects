@@ -8,7 +8,7 @@
         android:visibility="gone"
         android:text="@string/hello_blank_fragment" />
 
-    <dp.school.base.views.CustomRecycleView
+    <dp.school.utility.views.CustomRecycleView
         android:id="@+id/crv_login_collection"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

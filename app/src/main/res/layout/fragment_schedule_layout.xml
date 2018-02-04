@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <dp.school.base.views.HorizontalCalenderView
+    <dp.school.utility.views.HorizontalCalenderView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <android.support.v7.widget.RecyclerView

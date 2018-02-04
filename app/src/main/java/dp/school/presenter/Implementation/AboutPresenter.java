@@ -4,21 +4,19 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
-import dp.school.base.baseconnection.ConnectionUtils;
-import dp.school.base.baseconnection.ConnectionView;
-import dp.school.base.baseconnection.WebServiceConstants;
-import dp.school.presenter.PresenterInterface.AboutPresenterInterface;
-import dp.school.request.BaseRequest;
-import dp.school.response.AboutUsResponse;
-import dp.school.response.MediaResponse;
-import dp.school.response.teacherresponse.TeacherResponse;
-import dp.school.views.AboutUsView;
+import dp.school.utility.baseconnection.ConnectionUtils;
+import dp.school.utility.baseconnection.ConnectionView;
+import dp.school.utility.baseconnection.WebServiceConstants;
+import dp.school.presenter.PresenterInterface.AboutPresenterIml;
+import dp.school.model.request.BaseRequest;
+import dp.school.model.response.AboutUsResponse;
+import dp.school.views.viewInterface.AboutUsView;
 
 /**
  * Created by DELL on 30/01/2018.
  */
 
-public class AboutPresenter implements AboutPresenterInterface {
+public class AboutPresenter implements AboutPresenterIml {
 
     private AboutUsView aboutUsView;
     public AboutPresenter(AboutUsView aboutUsView) {
@@ -27,9 +25,10 @@ public class AboutPresenter implements AboutPresenterInterface {
 
     @Override
     public void getAboutData(BaseRequest baseRequest) {
-        ConnectionUtils.getInstance().createConnection(baseRequest, WebServiceConstants.ABOUT_US_URL, true, true, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(baseRequest, WebServiceConstants.ABOUT_US_URL, true, true,0, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
+
                 aboutUsView.displayAboutUs(new Gson().fromJson(response,AboutUsResponse.class));
             }
 
