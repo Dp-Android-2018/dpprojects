@@ -9,6 +9,16 @@
     <string name="upload">Upload</string>
     <string name="send">Send</string>
     <string name="hint_edit_text_type_something">Type Something</string>
+    <string name="password">كلمة السر</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="email">البريد الالكترونى</string>
+    <string name="address">العنوان</string>
+    <string name="birthday">تاريخ الميلاد</string>
+    <string name="nationality">الجنسية</string>
+    <string name="gender">النوع</string>
+    <string name="old_password">كلمة السر القديمة</string>
+    <string name="new_password">كلمة السر الجديدة</string>
+    <string name="confirm_password">تأكيد كلمة السر</string>
 
 
 </resources>

@@ -4,13 +4,13 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
-import dp.school.base.baseconnection.ConnectionUtils;
-import dp.school.base.baseconnection.ConnectionView;
-import dp.school.base.baseconnection.WebServiceConstants;
+import dp.school.model.response.FeedsResponse;
+import dp.school.utility.baseconnection.ConnectionUtils;
+import dp.school.utility.baseconnection.ConnectionView;
+import dp.school.utility.baseconnection.WebServiceConstants;
 import dp.school.presenter.PresenterInterface.FeedsPresenterIml;
-import dp.school.request.BaseRequest;
-import dp.school.response.FeedsResponse;
-import dp.school.views.FeedsView;
+import dp.school.model.request.BaseRequest;
+import dp.school.views.viewInterface.FeedsView;
 
 /**
  * Created by DELL on 31/01/2018.
@@ -25,7 +25,7 @@ public class FeedsPresenter implements FeedsPresenterIml {
 
     @Override
     public void getFeedsData(BaseRequest baseRequest) {
-        ConnectionUtils.getInstance().createConnection(baseRequest, WebServiceConstants.FEEDS_URL, true, false, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(baseRequest, WebServiceConstants.FEEDS_URL, true, false,0, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
                 feedsView.onFeedsDataLoaded(new Gson().fromJson(response, FeedsResponse.class));

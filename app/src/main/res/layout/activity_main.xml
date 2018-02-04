@@ -145,7 +145,7 @@
     </LinearLayout>
 
 
-    <dp.school.base.views.AnimatedButtonView
+    <dp.school.utility.views.AnimatedButtonView
         android:id="@+id/abv_main_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

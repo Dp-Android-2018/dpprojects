@@ -5,13 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
 
-    android:gravity="center">
 
+    android:gravity="center">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_student_attendance_background"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/dp10h">
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/iv_student_photo"
         android:layout_width="@dimen/dp120w"
         android:layout_height="@dimen/dp120h"
+        android:layout_marginTop="@dimen/dp10h"
         android:layout_marginStart="@dimen/dp10w"
         android:layout_marginEnd="@dimen/dp10w"
         android:layout_gravity="center"
@@ -19,7 +26,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/user_temp"
         app:civ_border_color="@color/colorGray"
-        app:civ_border_width="@dimen/dp2w"
+        app:civ_border_width="@dimen/dp5w"
         app:civ_shadow="true"
         app:civ_shadow_color="@color/colorGray"
         app:civ_shadow_radius="5" />
@@ -137,16 +144,18 @@
         android:layout_marginStart="@dimen/dp10w"
         android:layout_marginEnd="@dimen/dp10w"
         android:id="@+id/rl_permission"
-        android:layout_marginTop="@dimen/dp10h">
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_marginBottom="@dimen/dp15h">
         <TextView
             android:id="@+id/tv_permission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Permission"
+            android:text="@string/no_permission"
+            android:layout_centerInParent="true"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/colorBlack"/>
-        <TextView
+            android:textSize="14sp"
+            android:textColor="@color/colorGray"/>
+      <!--  <TextView
             android:layout_below="@+id/tv_permission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -161,6 +170,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            />
+            />-->
     </RelativeLayout>
+</LinearLayout>
 </LinearLayout>
