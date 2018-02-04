@@ -2,10 +2,15 @@ package dp.school.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import dp.school.R;
+import dp.school.adapter.FeedAdapter;
+import dp.school.response.FeedResponse;
 
 public class FeedDetailsActivity extends AppCompatActivity {
 

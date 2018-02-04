@@ -8,40 +8,46 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mikhaellopez.circularimageview.CircularImageView;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
-import dp.school.holder.FeedsViewHolder;
-import dp.school.model.FeedModel;
-import dp.school.response.FeedsResponse;
+import dp.school.response.FeedResponse;
 
 
 /**
  * Created by PC on 27/12/2017.
  */
 
-public class FeedAdapter extends RecyclerView.Adapter<FeedsViewHolder> {
+public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ClassViewHolder> {
 
-    ArrayList<FeedModel> feedItems;
+    ArrayList<FeedResponse> feedItems;
     private Context context;
 
-    public FeedAdapter(Context context, ArrayList<FeedModel> feedItems) {
+    public FeedAdapter(Context context, ArrayList<FeedResponse> feedItems) {
         this.feedItems = feedItems;
         this.context=context;
     }
 
     @Override
-    public FeedsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FeedAdapter.ClassViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_feed, parent, false);
-        FeedsViewHolder viewHolder = new FeedsViewHolder(v,context);
+        ClassViewHolder viewHolder = new ClassViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(FeedsViewHolder holder, final int position) {
-       holder.bindData(feedItems.get(position));
+    public void onBindViewHolder(FeedAdapter.ClassViewHolder holder, final int position) {
+        holder.details.setText(feedItems.get(position).getDetails());
+        holder.photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -49,5 +55,14 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedsViewHolder> {
         return feedItems.size();
     }
 
+    public static class ClassViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.tv_feed_details) TextView details;
+        @BindView(R.id.tv_feed_read_more)TextView readMore;
+        @BindView(R.id.iv_feed_photo)ImageView photo;
 
+        public ClassViewHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
+        }
+    }
 }

@@ -25,5 +25,5 @@ public class WebServiceConstants {
     public static final String ABOUT_US_URL = STUDENT_URL+"aboutUs";
     public static final String PICTURES_URL = STUDENT_URL+"getPictures";
     public static final String VIDEOS_URL = STUDENT_URL+"getVideos";
-    public static final String FEEDS_URL = STUDENT_URL+"getFeeds";
+
 }

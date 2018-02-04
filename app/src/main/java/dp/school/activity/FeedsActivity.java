@@ -2,78 +2,58 @@ package dp.school.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.LinearLayout;
 
 import com.twotoasters.jazzylistview.JazzyHelper;
 import com.twotoasters.jazzylistview.recyclerview.JazzyRecyclerViewScrollListener;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.adapter.FeedAdapter;
-import dp.school.model.FeedModel;
-import dp.school.presenter.Implementation.FeedsPresenter;
-import dp.school.presenter.PresenterInterface.FeedsPresenterIml;
-import dp.school.request.BaseRequest;
-import dp.school.response.FeedsResponse;
-import dp.school.views.FeedsView;
+import dp.school.login.LoginView;
+import dp.school.response.FeedResponse;
 
-public class FeedsActivity extends AppCompatActivity implements FeedsView{
+public class FeedsActivity extends AppCompatActivity {
 
     private JazzyRecyclerViewScrollListener jazzyScrollListener;
-
-    @BindView(R.id.rv_feeds_collection)
     RecyclerView studentsRecycleView;
 
-    @BindView(R.id.ll_container)
-    LinearLayout llContainer;
 
-    private  FeedAdapter feedAdapter;
-    private ArrayList<FeedModel>feedItems;
+
+    private static final String KEY_TRANSITION_EFFECT = "transition_effect";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feeds);
         ButterKnife.bind(this);
-        initializeUi();
-        getFeedsData();
 
-    }
-    public void initializeUi(){
-        feedItems=new ArrayList<>();
+        ArrayList<FeedResponse> feedItems = new ArrayList<>();
+        for(int i=0; i<1000; i++){
+            FeedResponse feedResponse = new FeedResponse();
+            feedResponse.setDetails("Lorem ipsm dolor sit amet, consector adipicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqa. Ut num ad vertual btubs "+i);
+            feedItems.add(feedResponse);
+        }
 
-        studentsRecycleView.setLayoutManager(new LinearLayoutManager(this));
+
+        studentsRecycleView =  findViewById(R.id.rv_feeds_collection);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        FeedAdapter feedAdapter = new FeedAdapter(this,feedItems);
+        studentsRecycleView.setLayoutManager(layoutManager);
+        studentsRecycleView.setAdapter(feedAdapter);
         jazzyScrollListener = new JazzyRecyclerViewScrollListener();
         studentsRecycleView.setOnScrollListener(jazzyScrollListener);
         jazzyScrollListener.setTransitionEffect(JazzyHelper.FLIP);
-    }
-    public void getFeedsData(){
-        BaseRequest baseRequest =new BaseRequest();
-        baseRequest.setApiToken("p8atgfTxGRRZF7ic5VszLprlMHjWc720UVnOHnDxnTnnSxK6tZe4hMaijvMhgxrC");
-        FeedsPresenterIml feedsPresenterIml=new FeedsPresenter(this);
-        feedsPresenterIml.getFeedsData(baseRequest);
+        System.out.println("Ay kalamC:\\Program Files\\Git"
+
+        );
+        System.out.println("Atef Commit  teastn");
+        System.out.println("bAHAA tEST");
+        System.out.println("bAHAA tESTw22222");
+        System.out.println("vvvvvvvvvvvv");
     }
 
-    @Override
-    public Context getContext() {
-        return getApplicationContext();
-    }
-
-    @Override
-    public void onError(int code, String messageError) {
-        Snackbar.make(llContainer,messageError,Snackbar.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onFeedsDataLoaded(FeedsResponse feedsResponse) {
-        feedItems=feedsResponse.getFeeds().getData();
-        feedAdapter=new FeedAdapter(this,feedItems);
-        studentsRecycleView.setAdapter(feedAdapter);
-    }
 }
