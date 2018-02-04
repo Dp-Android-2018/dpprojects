@@ -110,6 +110,7 @@ public class WorkingDayFragment extends Fragment implements ScheduleView {
 
 
                 case "Fri":
+
                     if (scheduleResponse.getData().getFri() != null)
                         data = scheduleResponse.getData().getFri();
                     break;
