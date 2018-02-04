@@ -2,6 +2,7 @@ package dp.school.presenter.Implementation;
 
 import android.content.Context;
 
+import com.android.volley.Request;
 import com.google.gson.Gson;
 
 import dp.school.model.response.PictureResponse;
@@ -27,7 +28,7 @@ public class PictureGalleryPresenter implements PictureGalleryIml {
     @Override
     public void loadMediaData(BaseRequest baseRequest, final boolean isPicGallery) {
 
-      ConnectionUtils.getInstance().createConnection(baseRequest, isPicGallery ? WebServiceConstants.PICTURES_URL:WebServiceConstants.VIDEOS_URL, true, true,0, new ConnectionView() {
+      ConnectionUtils.getInstance().createConnection(baseRequest, isPicGallery ? WebServiceConstants.PICTURES_URL:WebServiceConstants.VIDEOS_URL, true, true, Request.Method.GET, new ConnectionView() {
           @Override
           public void onResponseSuccess(String response) {
 
@@ -46,7 +47,7 @@ public class PictureGalleryPresenter implements PictureGalleryIml {
 
           @Override
           public Context getContext() {
-              return null;
+              return mediaView.getContext();
           }
       });
 

@@ -1,6 +1,7 @@
 package dp.school.utility.utils;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -26,6 +27,17 @@ public class FragmentUtils {
         transaction.add(CONTENT_VIEW_ID, fragment).commit();
     }
 
+
+    public static void addFragment(Context context, Fragment fragment, String backStackString, Bundle bundle) {
+        FragmentTransaction transaction = getFragmentManager(context).beginTransaction();
+        if (!ValidationUtils.isEmpty(backStackString)) {
+            transaction.addToBackStack(backStackString);
+        }else {
+            transaction.addToBackStack(null);
+        }
+        fragment.setArguments(bundle);
+        transaction.add(CONTENT_VIEW_ID, fragment).commit();
+    }
     public static void replaceFragment(Context context, Fragment fragment, String backStackString) {
         FragmentTransaction transaction = getFragmentManager(context).beginTransaction();
         if (!ValidationUtils.isEmpty(backStackString)) {

@@ -1,6 +1,8 @@
 package dp.school.views.ui.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -35,8 +38,8 @@ public class PictureGalleryFragment extends Fragment implements MediaView{
     @BindView(R.id.rv_pictures)
     RecyclerView rvPictures;
 
-    @BindView(R.id.ll_container)
-    LinearLayout llcontainer;
+    @BindView(R.id.rl_student_pictures_container)
+    RelativeLayout llcontainer;
     View rootView;
     private ArrayList<MediaModel>media=new ArrayList<>();
     private PicturesAdapter picturesAdapter;
@@ -52,6 +55,7 @@ public class PictureGalleryFragment extends Fragment implements MediaView{
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_student_pictures_layout, container, false);
         ButterKnife.bind(this,rootView);
+        if(getArguments()!=null)
         isPicGallery=getArguments().getBoolean("Pic");
 
         initializeUi();
@@ -67,7 +71,7 @@ public class PictureGalleryFragment extends Fragment implements MediaView{
     public void getData(){
         pictureGalleryIml=new PictureGalleryPresenter(this);
         BaseRequest baseRequest=new BaseRequest();
-        baseRequest.setApiToken("p8atgfTxGRRZF7ic5VszLprlMHjWc720UVnOHnDxnTnnSxK6tZe4hMaijvMhgxrC");
+       // baseRequest.setApiToken("p8atgfTxGRRZF7ic5VszLprlMHjWc720UVnOHnDxnTnnSxK6tZe4hMaijvMhgxrC");
         pictureGalleryIml.loadMediaData(baseRequest,isPicGallery);
     }
 
@@ -98,5 +102,9 @@ public class PictureGalleryFragment extends Fragment implements MediaView{
         Snackbar.make(llcontainer,messageError,Snackbar.LENGTH_LONG).show();
     }
 
-
+    @Nullable
+    @Override
+    public Context getContext() {
+        return getActivity();
+    }
 }

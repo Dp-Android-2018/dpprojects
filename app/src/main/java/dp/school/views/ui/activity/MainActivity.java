@@ -1,4 +1,4 @@
-package dp.school;
+package dp.school.views.ui.activity;
 
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -20,15 +21,17 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dp.school.activity.FeedDetailsActivity;
-import dp.school.adapter.MenuAdapter;
-import dp.school.base.utils.FragmentUtils;
-import dp.school.fragment.AboutUsFragment;
-import dp.school.fragment.BaseFragment;
-import dp.school.fragment.PictureGalleryFragment;
-import dp.school.fragment.ScheduleFragment;
-import dp.school.listener.OnMenuItemClickListener;
-import dp.school.model.MenuItem;
+import dp.school.R;
+import dp.school.model.gloabal.MenuItem;
+import dp.school.utility.utils.FragmentUtils;
+import dp.school.views.ui.adapter.MenuAdapter;
+import dp.school.views.ui.fragment.AboutUsFragment;
+import dp.school.views.ui.fragment.BaseFragment;
+import dp.school.views.ui.fragment.FeedsFragment;
+import dp.school.views.ui.fragment.PictureGalleryFragment;
+import dp.school.views.ui.fragment.ScheduleFragment;
+import dp.school.views.ui.listener.OnMenuItemClickListener;
+
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.nb_main_tabs_container)
@@ -92,9 +95,10 @@ public class MainActivity extends AppCompatActivity {
                     title = getResources().getString(R.string.tab_schedule);
                 }
                 else if (position == 3) {
-                    FragmentUtils.addFragment(MainActivity.this, new PictureGalleryFragment(), "");
+                    FragmentUtils.addFragment(MainActivity.this, new FeedsFragment(), "");
                     title = getResources().getString(R.string.tab_feeds);
                 }
+
 
                 setHeaderTitleConfigurations(position,title);
 
@@ -157,9 +161,9 @@ public class MainActivity extends AppCompatActivity {
                 } else if (position == 2) {
                     Snackbar.make(mainHolderRelativeLayout, "Message", Snackbar.LENGTH_LONG).show();
                 } else if (position == 3) {
-                    FragmentUtils.addFragment(MainActivity.this, new PictureGalleryFragment(), "");
+                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(true), "");
                 } else if (position == 4) {
-                    FragmentUtils.addFragment(MainActivity.this, new PictureGalleryFragment(), "");
+                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(false), "");
                 } else if (position == 5) {
 
                 } else if (position == 6) {
@@ -206,5 +210,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
+    }
+
+    public android.support.v4.app.Fragment passDataToGallery(Boolean pic){
+        android.support.v4.app.Fragment pictureGallery=new PictureGalleryFragment();
+        Bundle b=new Bundle();
+        b.putBoolean("Pic",pic);
+        pictureGallery.setArguments(b);
+        return pictureGallery;
     }
 }

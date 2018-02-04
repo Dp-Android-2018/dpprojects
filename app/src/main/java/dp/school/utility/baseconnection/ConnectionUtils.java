@@ -39,7 +39,11 @@ public class ConnectionUtils {
 
     public void createConnection(Object requestData, String url, final boolean haveHeaders, final boolean showLoadingBar ,int method, final ConnectionView connectionView) {
 
-      /*  if (dialog == null) {
+
+
+
+
+        if (showLoadingBar) {
             dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
             try {
@@ -47,11 +51,8 @@ public class ConnectionUtils {
             }catch (NullPointerException e){
                 e.getStackTrace();
             }
-        }
-
-        if (showLoadingBar) {
             dialog.show();
-        }*/
+        }
 
         JSONObject jsonObject = null;
         try {
@@ -68,7 +69,9 @@ public class ConnectionUtils {
                     public void onResponse(JSONObject response) {
                         connectionView.onResponseSuccess(response.toString());
                         System.out.println("Response : " + response.toString());
-//                        dialog.cancel();
+                        if(dialog!=null&&showLoadingBar) {
+                            dialog.cancel();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
@@ -76,7 +79,9 @@ public class ConnectionUtils {
                     public void onErrorResponse(VolleyError volleyError) {
                         if(getErrorMessage(volleyError)==null)
                             connectionView.onResponseError(volleyError.networkResponse.statusCode, getErrorMessage(volleyError));
-                        dialog.cancel();
+                        if(dialog!=null&&showLoadingBar) {
+                            dialog.cancel();
+                        }
                     }
                 }
         ) {

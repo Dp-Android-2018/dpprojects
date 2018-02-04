@@ -2,6 +2,7 @@ package dp.school.presenter.Implementation;
 
 import android.content.Context;
 
+import com.android.volley.Request;
 import com.google.gson.Gson;
 
 import dp.school.model.response.FeedsResponse;
@@ -25,7 +26,7 @@ public class FeedsPresenter implements FeedsPresenterIml {
 
     @Override
     public void getFeedsData(BaseRequest baseRequest) {
-        ConnectionUtils.getInstance().createConnection(baseRequest, WebServiceConstants.FEEDS_URL, true, false,0, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(baseRequest, WebServiceConstants.FEEDS_URL, true, true, Request.Method.GET, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
                 feedsView.onFeedsDataLoaded(new Gson().fromJson(response, FeedsResponse.class));
