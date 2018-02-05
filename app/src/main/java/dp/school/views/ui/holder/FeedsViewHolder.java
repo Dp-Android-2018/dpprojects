@@ -33,6 +33,7 @@ public class FeedsViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindData(final FeedModel feedModel){
+
         if(feedModel.getTitle()!=null && !feedModel.getTitle().equals(""))
             tvFeedTitle.setText(feedModel.getTitle());
 

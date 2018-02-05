@@ -59,7 +59,7 @@ public class FeedsFragment extends Fragment implements FeedsView {
 
     public void initializeUi(){
         feedItems=new ArrayList<>();
-        feedsRecycleView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        feedsRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         jazzyScrollListener = new JazzyRecyclerViewScrollListener();
         feedsRecycleView.setOnScrollListener(jazzyScrollListener);
         jazzyScrollListener.setTransitionEffect(JazzyHelper.FLIP);
