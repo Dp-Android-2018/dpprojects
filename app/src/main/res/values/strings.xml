@@ -87,4 +87,5 @@
     <string name="label_time_out_error">Connection time our error</string>
     <string name="label_parse_error">Parse error</string>
     <string name="label_unknown_error">Unknown error</string>
+    <string name="label_points">Points</string>
 </resources>

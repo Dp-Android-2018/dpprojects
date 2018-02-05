@@ -42,11 +42,8 @@ public class PicturesHolder extends RecyclerView.ViewHolder {
     public void setPictureData(MediaModel mediaModel){
        // if(isPicGallery) {
             if (mediaModel.getUrl() != null && !mediaModel.getUrl().equals("")) {
-
                 Picasso.with(context).load(mediaModel.getUrl()).into(ivGalleryPicture);
             }
-
-
       //  }
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     title = getResources().getString(R.string.tab_schedule);
                 }
                 else if (position == 2) {
-                    FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
+                    FragmentUtils.addFragment(MainActivity.this, new TopStudentFragment(), "");
                     title = getResources().getString(R.string.tab_schedule);
                 }
                 else if (position == 3) {
@@ -160,14 +160,11 @@ public class MainActivity extends AppCompatActivity {
                 if (position == 0) {
                     FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
                 } else if (position == 1) {
-
                 } else if (position == 2) {
                     FragmentUtils.addFragment(MainActivity.this, new AboutUsFragment(), "");
                 } else if (position == 3) {
-
                 } else if (position == 4) {
                     FragmentUtils.addFragment(MainActivity.this, passDataToGallery(true), "");
-
                 } else if (position == 5) {
                     FragmentUtils.addFragment(MainActivity.this, passDataToGallery(false), "");
                 } else if (position == 6) {
@@ -179,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent i=new Intent(getApplicationContext(),StartActivity.class);
                     startActivity(i);
                     finishAffinity();
-
                 }
                 slideMenuView.closeMenu(true);
             }
