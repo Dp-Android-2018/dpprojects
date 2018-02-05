@@ -37,17 +37,13 @@ public class ConnectionUtils {
     }
 
     public void createConnection(Object requestData, String url, final boolean haveHeaders, final boolean showLoadingBar ,int method, final ConnectionView connectionView) {
-
-
-
-
-
         if (showLoadingBar) {
             dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
-           try {
+            try {
+                System.out.println("xyz");
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-           }catch (NullPointerException e){
+            }catch (NullPointerException e){
                 e.getStackTrace();
             }
             dialog.show();
@@ -67,23 +63,26 @@ public class ConnectionUtils {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        connectionView.onResponseSuccess(response.toString());
-                        System.out.println("Response : " + response.toString());
-                       if(dialog!=null&&showLoadingBar) {
-                           System.out.println("Dialog Has Been Cancelled 1");
-                            dialog.dismiss();
+                        if(dialog!=null&&showLoadingBar) {
+                            dialog.cancel();
                         }
+                        connectionView.onResponseSuccess(response.toString());
+
+
+
+                        System.out.println("Response : " + response.toString());
+
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
+                        if(dialog!=null&&showLoadingBar) {
+                            dialog.cancel();
+                        }
                         if(getErrorMessage(volleyError)==null)
                             connectionView.onResponseError(volleyError.networkResponse.statusCode, getErrorMessage(volleyError));
-                       if(dialog!=null&&showLoadingBar) {
-                           System.out.println("Dialog Has Been Cancelled 2");
-                           dialog.dismiss();
-                        }
+
                     }
                 }
         ) {
@@ -96,7 +95,6 @@ public class ConnectionUtils {
                     params.put("Content-Type", "application/json");
                     params.put("key", AUTH_KEY);
                  //   params.put("Authorization","Bearer 7bqaeAu5aF5XrzNMKWDJfwKd7zxFG5FZ6HoV4PpXJ1139kSrE12iai59sLMq1paK");
-                    params.put("Authorization","Bearer Mn1DKrcfrZ2yTIbFYISyc6N0Hoibe5GaA2RFVsIw8nU2s87c8wKhEqJEtM0dg1Vy");
                     params.put("Authorization","Bearer Mn1DKrcfrZ2yTIbFYISyc6N0Hoibe5GaA2RFVsIw8nU2s87c8wKhEqJEtM0dg1Vy");
                 }
 
