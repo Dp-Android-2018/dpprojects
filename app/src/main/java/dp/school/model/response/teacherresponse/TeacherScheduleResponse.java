@@ -8,7 +8,7 @@ import dp.school.model.gloabal.TeacherSchedule;
  * Created by DELL on 04/02/2018.
  */
 
-public class TeacherSchduleResponse {
+public class TeacherScheduleResponse {
 
 
     @SerializedName("data")
