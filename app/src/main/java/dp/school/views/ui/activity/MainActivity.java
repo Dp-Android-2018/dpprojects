@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -30,6 +29,8 @@ import dp.school.views.ui.fragment.BaseFragment;
 import dp.school.views.ui.fragment.FeedsFragment;
 import dp.school.views.ui.fragment.PictureGalleryFragment;
 import dp.school.views.ui.fragment.ScheduleFragment;
+import dp.school.views.ui.fragment.TopStudentFragment;
+import dp.school.views.ui.fragment.TopStudentFragmentTabsContainer;
 import dp.school.views.ui.listener.OnMenuItemClickListener;
 
 
@@ -59,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         setBottomTabs();
         setBottomTabEvent();
         setMenu();
-
     }
 
     private void setBottomTabs() {
@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationBar.addTab(scheduleTab);
         bottomNavigationBar.addTab(topStudent);
         bottomNavigationBar.addTab(feedsTab);
-
-
     }
 
     private void setBottomTabEvent() {
@@ -81,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             public void onSelect(int position) {
                 FragmentUtils.removeFragment(MainActivity.this);
                 String title="";
-
 
                 if (position == 0) {
                     FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
@@ -98,10 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     FragmentUtils.addFragment(MainActivity.this, new FeedsFragment(), "");
                     title = getResources().getString(R.string.tab_feeds);
                 }
-
-
                 setHeaderTitleConfigurations(position,title);
-
             }
         });
     }
@@ -165,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (position == 4) {
                     FragmentUtils.addFragment(MainActivity.this, passDataToGallery(false), "");
                 } else if (position == 5) {
-
+                    FragmentUtils.addFragment(MainActivity.this,new TopStudentFragmentTabsContainer(),"");
                 } else if (position == 6) {
 
                 } else if (position == 7) {

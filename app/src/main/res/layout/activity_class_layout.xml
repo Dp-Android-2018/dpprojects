@@ -56,7 +56,6 @@
         android:layout_below="@+id/rl_class_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layoutDirection="ltr"
         app:tabGravity="fill"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
