@@ -81,6 +81,7 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
         SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, teacherRequest);
         Intent intent = new Intent(TeacherLoginActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

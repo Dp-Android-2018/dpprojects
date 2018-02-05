@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
    >
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,13 +18,16 @@
         android:textColor="@color/colorBlack"
         android:layout_marginStart="@dimen/dp10w"
         android:layout_marginEnd="@dimen/dp10w"
+        android:layout_marginTop="@dimen/dp10h"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/tv_contact_us_phones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp15w"
         android:layout_marginEnd="@dimen/dp10w"
+        android:layout_marginTop="@dimen/dp5h"
         android:text="03432432"
         android:textColor="@color/colorGray" />
 
@@ -54,25 +60,25 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_linked_in" />
+            android:src="@mipmap/ic_facebook" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_linked_in" />
+            android:src="@mipmap/ic_twitter" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_linked_in" />
+            android:src="@mipmap/ic_instgram" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_linked_in" />
+            android:src="@mipmap/ic_google_plus" />
 
         <ImageView
             android:layout_width="0dp"
@@ -90,7 +96,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp10h"
-
         android:layout_marginStart="@dimen/dp10w"
         android:layout_marginEnd="@dimen/dp10w"
         android:text="@string/label_map"
@@ -98,11 +103,12 @@
         android:textStyle="bold" />
 
     <com.google.android.gms.maps.MapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mv_contact_us_map"
         android:layout_marginTop="@dimen/dp10h"
         android:layout_marginStart="@dimen/dp10w"
         android:layout_marginEnd="@dimen/dp10w"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
         />
 </LinearLayout>
+</RelativeLayout>

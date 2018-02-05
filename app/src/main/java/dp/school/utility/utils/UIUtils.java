@@ -3,6 +3,7 @@ package dp.school.utility.utils;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.text.Editable;
@@ -103,4 +104,14 @@ public class UIUtils {
         int noOfColumns = (int) (dpWidth / 180);
         return noOfColumns;
     }
+
+    public static int getColumnWidth(Context context) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((Activity)context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return (displayMetrics.widthPixels/2);
+
+    }
+
+
+
 }

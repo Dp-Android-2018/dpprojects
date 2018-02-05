@@ -36,7 +36,6 @@ public class WorkingDayFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_working_day_layout,container,false);
         ButterKnife.bind(this,v);
-        System.out.println("xyz");
         initializeUi();
         notifyAdapterDataChanged(new Gson().fromJson(getArguments().getString("details"),TeacherScheduleResponse.class));
         return v;

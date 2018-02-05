@@ -17,6 +17,7 @@ import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
+import dp.school.utility.utils.SharedPreferenceUtils;
 import dp.school.utility.utils.UIUtils;
 import dp.school.utility.views.AnimatedButtonView;
 import dp.school.utility.views.OnAnimatedButtonListener;

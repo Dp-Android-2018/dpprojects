@@ -103,6 +103,7 @@ public class ParentLoginActivity extends AppCompatActivity implements ParentView
                 if(validated){
                     if(passwordEditText.getText().toString().equals(parentResponse.getUser().getCode())) {
                         parentPresenter.onValidateParentCode(passwordEditText.getText() + "");
+                        SharedPreferenceUtils.setUserKey(parentResponse.getUser().getApiToken());
                     }else {
                         UIUtils.showSweetAlertDialog(ParentLoginActivity.this,SweetAlertDialog.ERROR_TYPE,getResources().getString(R.string.msg_wrong_code));
                     }

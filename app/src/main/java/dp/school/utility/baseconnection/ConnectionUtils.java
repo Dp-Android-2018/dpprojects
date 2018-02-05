@@ -1,12 +1,16 @@
 package dp.school.utility.baseconnection;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.ImageView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
 import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
@@ -19,7 +23,8 @@ import java.util.HashMap;
 import java.util.Map;
 import dp.school.R;
 import dp.school.utility.AppController;
-
+import dp.school.utility.utils.SharedPreferenceUtils;
+import dp.school.views.ui.activity.ErrorActivity;
 
 
 public class ConnectionUtils {
@@ -41,7 +46,6 @@ public class ConnectionUtils {
             dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
             try {
-                System.out.println("xyz");
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
             }catch (NullPointerException e){
                 e.getStackTrace();
@@ -53,7 +57,6 @@ public class ConnectionUtils {
         try {
             String requestString = new Gson().toJson(requestData);
             jsonObject = new JSONObject(requestString);
-
             System.out.println("Request : " + requestString);
         } catch (Exception e) {
             System.out.println("Catch 2 :"+e.getMessage());
@@ -67,11 +70,7 @@ public class ConnectionUtils {
                             dialog.cancel();
                         }
                         connectionView.onResponseSuccess(response.toString());
-
-
-
                         System.out.println("Response : " + response.toString());
-
                     }
                 },
                 new Response.ErrorListener() {
@@ -80,9 +79,8 @@ public class ConnectionUtils {
                         if(dialog!=null&&showLoadingBar) {
                             dialog.cancel();
                         }
-                        if(getErrorMessage(volleyError)==null)
-                            connectionView.onResponseError(volleyError.networkResponse.statusCode, getErrorMessage(volleyError));
-
+                        if(getErrorMessage(volleyError,connectionView.getContext())==null)
+                            connectionView.onResponseError(volleyError.networkResponse.statusCode, "");
                     }
                 }
         ) {
@@ -94,10 +92,9 @@ public class ConnectionUtils {
                     params.put("Accept", "application/json");
                     params.put("Content-Type", "application/json");
                     params.put("key", AUTH_KEY);
-                 //   params.put("Authorization","Bearer 7bqaeAu5aF5XrzNMKWDJfwKd7zxFG5FZ6HoV4PpXJ1139kSrE12iai59sLMq1paK");
-                    params.put("Authorization","Bearer Mn1DKrcfrZ2yTIbFYISyc6N0Hoibe5GaA2RFVsIw8nU2s87c8wKhEqJEtM0dg1Vy");
+                    params.put("Authorization","Bearer "+SharedPreferenceUtils.getUserKey());
+                    System.out.println("Bearer "+SharedPreferenceUtils.getUserKey());
                 }
-
                 return params;
             }
         };
@@ -114,18 +111,25 @@ public class ConnectionUtils {
 
     }
 
-    private String getErrorMessage(VolleyError volleyError) {
+    private String getErrorMessage(VolleyError volleyError, Context context) {
+        Intent intent = new Intent(context, ErrorActivity.class);
         String message = null;
         if (volleyError instanceof NetworkError) {
-            message = "Cannot connect to Internet...Please check your connection!";
+            message = context.getResources().getString(R.string.label_network_error);
         } else if (volleyError instanceof ServerError) {
-            message = "The server could not be found. Please try again after some time!!";
+            message = context.getResources().getString(R.string.label_server_error);
         } else if (volleyError instanceof NoConnectionError) {
-            message = "Cannot connect to Internet...Please check your connection!";
+            message = context.getResources().getString(R.string.label_connection_error);
         } else if (volleyError instanceof TimeoutError) {
-            message = "Connection TimeOut! Please check your internet connection.";
+            message = context.getResources().getString(R.string.label_time_out_error);
+        }else if (volleyError instanceof ParseError) {
+            message = context.getResources().getString(R.string.label_parse_error);
+        }else {
+            message = context.getResources().getString(R.string.label_unknown_error);
         }
-        System.out.println(message);
+        ((Activity)context).finishAffinity();
+        intent.putExtra("errorMessage",message);
+        context.startActivity(intent);
         return message;
     }
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dp.school.views.ui.activity.ErrorActivity">
+
+    <ImageView
+        android:id="@+id/iv_error_image"
+        android:layout_width="@dimen/dp150w"
+        android:layout_height="@dimen/dp150w"
+        android:layout_centerInParent="true"
+        android:src="@drawable/img_connection_error" />
+
+    <TextView
+        android:id="@+id/tv_error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_error_image"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:gravity="center"
+        android:layout_margin="@dimen/dp10w"
+        android:text="@string/label_connection_error" />
+</RelativeLayout>

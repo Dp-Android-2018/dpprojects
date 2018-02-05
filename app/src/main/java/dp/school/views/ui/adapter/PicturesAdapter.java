@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import dp.school.R;
+import dp.school.utility.utils.UIUtils;
 import dp.school.views.ui.holder.PicturesHolder;
 import dp.school.model.gloabal.MediaModel;
 
@@ -21,15 +22,18 @@ public class PicturesAdapter extends RecyclerView.Adapter<PicturesHolder> {
     private Context context;
     private ArrayList<MediaModel> mediaModels;
     private boolean isPicGallery;
+    private int imageWidth=0;
+
     public PicturesAdapter(Context context, ArrayList<MediaModel> mediaModels) {
         this.context = context;
         this.mediaModels = mediaModels;
+        imageWidth= UIUtils.getColumnWidth(context);
     }
 
     @Override
     public PicturesHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_picture_layout, parent, false);
-        return new PicturesHolder(v, context,isPicGallery);
+        return new PicturesHolder(v, context,isPicGallery,imageWidth);
     }
 
     @Override

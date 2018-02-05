@@ -10,6 +10,7 @@ import dp.school.utility.baseconnection.WebServiceConstants;
 import dp.school.model.request.TeacherRequest;
 import dp.school.model.response.teacherresponse.TeacherResponse;
 import dp.school.presenter.PresenterInterface.TeacherPresenterIml;
+import dp.school.utility.utils.SharedPreferenceUtils;
 import dp.school.views.viewInterface.TeacherView;
 
 
@@ -26,7 +27,9 @@ public class TeacherPresenter implements TeacherPresenterIml {
         ConnectionUtils.getInstance().createConnection(teacherRequest, WebServiceConstants.TEACHER_LOGIN, true, true,1, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
-                teacherView.onTeacherLogined(new Gson().fromJson(response,TeacherResponse.class));
+                TeacherResponse teacherResponse = new Gson().fromJson(response,TeacherResponse.class);
+                SharedPreferenceUtils.setUserKey(teacherResponse.getUser().getApiToken());
+                teacherView.onTeacherLogined(teacherResponse);
             }
 
             @Override

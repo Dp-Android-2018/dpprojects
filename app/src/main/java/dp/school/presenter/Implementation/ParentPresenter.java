@@ -39,7 +39,6 @@ public class ParentPresenter implements ParentPresenterIml {
 
     @Override
     public void onValidateParentCode(String password) {
-
         parentView.onParentCodeValidated();
     }
 }

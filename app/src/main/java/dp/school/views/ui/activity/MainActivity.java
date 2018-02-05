@@ -1,5 +1,6 @@
 package dp.school.views.ui.activity;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,12 +25,15 @@ import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.model.gloabal.MenuItem;
 import dp.school.utility.utils.FragmentUtils;
+import dp.school.utility.utils.SharedPreferenceUtils;
 import dp.school.views.ui.adapter.MenuAdapter;
 import dp.school.views.ui.fragment.AboutUsFragment;
 import dp.school.views.ui.fragment.BaseFragment;
+import dp.school.views.ui.fragment.ContactUsFragment;
 import dp.school.views.ui.fragment.FeedsFragment;
 import dp.school.views.ui.fragment.PictureGalleryFragment;
 import dp.school.views.ui.fragment.ScheduleFragment;
+import dp.school.views.ui.fragment.SuggestionFragment;
 import dp.school.views.ui.fragment.TopStudentFragment;
 import dp.school.views.ui.fragment.TopStudentFragmentTabsContainer;
 import dp.school.views.ui.listener.OnMenuItemClickListener;
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout containerLayout;
     @BindView(R.id.tv_main_title)
     TextView titleText;
+    @BindView(R.id.iv_main_menu)
+    ImageView menuImageView;
     SlidingRootNav slideMenuView;
     RecyclerView menuList;
     View menuView;
@@ -60,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         setBottomTabs();
         setBottomTabEvent();
         setMenu();
+        setEvents();
     }
 
     private void setBottomTabs() {
@@ -102,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<MenuItem> getMenuItems() {
         menuItems = new ArrayList<>();
+        menuItems.add(new MenuItem(getResources().getString(R.string.menu_home), R.drawable.ic_home_off));
         menuItems.add(new MenuItem(getResources().getString(R.string.menu_profile), R.drawable.ic_menu_profile));
         menuItems.add(new MenuItem(getResources().getString(R.string.menu_about_us), R.drawable.ic_menu_about_us));
         menuItems.add(new MenuItem(getResources().getString(R.string.menu_message), R.drawable.ic_menu_message));
@@ -151,18 +160,25 @@ public class MainActivity extends AppCompatActivity {
                 if (position == 0) {
                     FragmentUtils.addFragment(MainActivity.this, new BaseFragment(), "");
                 } else if (position == 1) {
-                    FragmentUtils.addFragment(MainActivity.this, new AboutUsFragment(), "");
-                } else if (position == 2) {
-                    Snackbar.make(mainHolderRelativeLayout, "Message", Snackbar.LENGTH_LONG).show();
-                } else if (position == 3) {
-                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(true), "");
-                } else if (position == 4) {
-                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(false), "");
-                } else if (position == 5) {
-                    FragmentUtils.addFragment(MainActivity.this,new TopStudentFragmentTabsContainer(),"");
-                } else if (position == 6) {
 
+                } else if (position == 2) {
+                    FragmentUtils.addFragment(MainActivity.this, new AboutUsFragment(), "");
+                } else if (position == 3) {
+
+                } else if (position == 4) {
+                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(true), "");
+
+                } else if (position == 5) {
+                    FragmentUtils.addFragment(MainActivity.this, passDataToGallery(false), "");
+                } else if (position == 6) {
+                    FragmentUtils.addFragment(MainActivity.this, new SuggestionFragment(), "");
                 } else if (position == 7) {
+                    FragmentUtils.addFragment(MainActivity.this, new ContactUsFragment(), "");
+                } else if (position == 8) {
+                    SharedPreferenceUtils.clearSharedPreference();
+                    Intent i=new Intent(getApplicationContext(),StartActivity.class);
+                    startActivity(i);
+                    finishAffinity();
 
                 }
                 slideMenuView.closeMenu(true);
@@ -212,5 +228,18 @@ public class MainActivity extends AppCompatActivity {
         b.putBoolean("Pic",pic);
         pictureGallery.setArguments(b);
         return pictureGallery;
+    }
+
+    private void setEvents(){
+        menuImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(slideMenuView.isMenuOpened()){
+                    slideMenuView.closeMenu(true);
+                }else {
+                    slideMenuView.openMenu(true);
+                }
+            }
+        });
     }
 }

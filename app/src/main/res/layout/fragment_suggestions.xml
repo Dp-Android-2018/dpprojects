@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/dp250w"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp15h"
+        android:layout_marginStart="@dimen/dp15h"
+        android:layout_marginTop="@dimen/dp15h"
+        android:background="@drawable/et_quiz_background">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:paddingEnd="@dimen/dp5w"
+            android:paddingStart="@dimen/dp10w"
+            android:paddingTop="@dimen/dp5h"
+            android:textColorHint="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp25w"
+        android:layout_marginTop="@dimen/dp2h"
+        android:text="Chapter 1,revision"
+        android:textColor="@color/colorGray"
+        android:textSize="14sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp120h"
+        android:layout_marginEnd="@dimen/dp10h"
+        android:layout_marginStart="@dimen/dp10h"
+        android:layout_marginTop="@dimen/dp25h"
+        android:background="@drawable/et_quiz_background"
+        android:gravity="start"
+        android:hint="Description"
+        android:padding="@dimen/dp5h"
+        android:paddingEnd="@dimen/dp5w"
+        android:paddingStart="@dimen/dp10w"
+        android:paddingTop="@dimen/dp5h"
+        android:textColorHint="@color/colorBlack"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp25w"
+        android:layout_marginTop="@dimen/dp2h"
+        android:text="Notes for students"
+        android:textColor="@color/colorGray"
+        android:textSize="14sp" />
+
+
+    <LinearLayout
+        android:layout_width="@dimen/dp250w"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp15h"
+        android:layout_marginStart="@dimen/dp15h"
+        android:layout_marginTop="@dimen/dp25h"
+        android:background="@drawable/et_quiz_background"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="@dimen/dp120h"
+            android:layout_height="@dimen/dp35h"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dp15h"
+            android:layout_marginTop="@dimen/dp15h"
+            android:background="@drawable/btn_rounded_assignment"
+            android:gravity="center"
+            android:text="@string/send"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout>
+</RelativeLayout>

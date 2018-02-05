@@ -64,7 +64,7 @@ public class PictureGalleryFragment extends Fragment implements MediaView{
     }
 
     public void initializeUi(){
-        rvPictures.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(), UIUtils.calculateNoOfColumns(getActivity().getApplicationContext())));
+        rvPictures.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
     }
 
@@ -92,7 +92,7 @@ public class PictureGalleryFragment extends Fragment implements MediaView{
     }
 
     public void notifyAdapter(){
-        picturesAdapter=new PicturesAdapter(getActivity().getApplicationContext(),media);
+        picturesAdapter=new PicturesAdapter(getActivity(),media);
         picturesAdapter.setPicGallery(isPicGallery);
         rvPictures.setAdapter(picturesAdapter);
     }

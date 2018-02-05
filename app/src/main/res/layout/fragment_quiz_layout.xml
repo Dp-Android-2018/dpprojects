@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Title"
+        android:textSize="12sp"
         android:textColorHint="@color/colorBlack"
         android:textStyle="bold"
         android:paddingStart="@dimen/dp10w"
@@ -42,6 +43,7 @@
         android:padding="@dimen/dp5h"
         android:hint="Description"
         android:gravity="start"
+        android:textSize="12sp"
         android:textColorHint="@color/colorBlack"
         android:textStyle="bold"
         android:paddingStart="@dimen/dp10w"
@@ -114,6 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Final Grade"
+            android:textSize="12sp"
             android:textColorHint="@color/colorBlack"
             android:textStyle="bold"
             android:paddingStart="@dimen/dp10w"
@@ -135,14 +138,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/dp25w"
-            android:layout_height="@dimen/dp25h"
-            android:src="@drawable/iv_star"
-            android:layout_toStartOf="@+id/btn_send"
-            android:layout_marginEnd="@dimen/dp25h"
-            android:layout_centerVertical="true"
-            />
+
     <Button
         android:layout_width="@dimen/dp120h"
         android:layout_height="@dimen/dp35h"

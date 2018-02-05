@@ -15,7 +15,5 @@
         android:numColumns="auto_fit"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/dp10w"
-        android:verticalSpacing="@dimen/dp5w"
-        android:horizontalSpacing="@dimen/dp5w"
-        tools:listitem="@layout/item_picture_layout"></android.support.v7.widget.RecyclerView>
+        tools:listitem="@layout/item_picture_layout"/>
 </RelativeLayout>
