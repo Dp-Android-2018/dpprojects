@@ -2,11 +2,13 @@ package dp.school.model.gloabal;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by DELL on 31/01/2018.
  */
 
-public class FeedModel extends BaseItemModel {
+public class FeedModel extends BaseItemModel implements Serializable {
     @SerializedName("title")
     private String title;
 

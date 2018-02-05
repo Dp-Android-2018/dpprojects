@@ -1,6 +1,7 @@
 package dp.school.views.ui.holder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
 import dp.school.model.gloabal.FeedModel;
+import dp.school.views.ui.activity.FeedDetailsActivity;
 
 /**
  * Created by DELL on 31/01/2018.
@@ -30,7 +32,7 @@ public class FeedsViewHolder extends RecyclerView.ViewHolder {
         this.context=context;
     }
 
-    public void bindData(FeedModel feedModel){
+    public void bindData(final FeedModel feedModel){
         if(feedModel.getTitle()!=null && !feedModel.getTitle().equals(""))
             tvFeedTitle.setText(feedModel.getTitle());
 
@@ -46,6 +48,10 @@ public class FeedsViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i=new Intent(context, FeedDetailsActivity.class);
+                i.putExtra("FeedItem",feedModel);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);
 
             }
         });
