@@ -6,9 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dp.school.R;
+import dp.school.model.gloabal.FeedModel;
 
 public class FeedDetailsActivity extends AppCompatActivity {
 
@@ -28,6 +31,22 @@ public class FeedDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_details);
         ButterKnife.bind(this);
+        setDataToUi();
+    }
+
+    public void setDataToUi(){
+        FeedModel feedModel=(FeedModel)getIntent().getSerializableExtra("FeedItem");
+        if(feedModel.getImage()!=null && !feedModel.getImage().equals(""))
+            Picasso.with(getApplicationContext()).load(feedModel.getImage()).into(ivFeedPhoto);
+
+        if(feedModel.getTitle()!=null)
+            tvFeedTitle.setText(feedModel.getTitle());
+
+        if(feedModel.getSubTitle()!=null)
+            tvFeedSubTitle.setText(feedModel.getSubTitle());
+
+        if(feedModel.getDetails()!=null)
+            tvFeedDetails.setText(feedModel.getDetails());
     }
 
 }
