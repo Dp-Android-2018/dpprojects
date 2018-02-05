@@ -5,7 +5,9 @@ import android.content.Context;
 import com.android.volley.Request;
 import com.google.gson.Gson;
 
-import dp.school.model.response.teacherresponse.TeacherScheduleResponse;
+import dp.school.model.gloabal.ScheduleResponse;
+import dp.school.model.request.BaseRequest;
+import dp.school.model.response.teacherresponse.TeacherSchduleResponse;
 import dp.school.presenter.PresenterInterface.SchedulePresenterIml;
 import dp.school.utility.baseconnection.ConnectionUtils;
 import dp.school.utility.baseconnection.ConnectionView;
@@ -26,10 +28,10 @@ public class SchedulePresenter implements SchedulePresenterIml {
 
     @Override
     public void getTeacherSchedule() {
-        ConnectionUtils.getInstance().createConnection(null, WebServiceConstants.SCHEDULE_URL, true, true, Request.Method.GET, new ConnectionView() {
+        ConnectionUtils.getInstance().createConnection(new BaseRequest(), WebServiceConstants.SCHEDULE_URL, true, true, Request.Method.GET, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
-                scheduleView.onTeacherScheduleLoaded(new Gson().fromJson(response, TeacherScheduleResponse.class));
+                scheduleView.onTeacherScheduleLoaded(new Gson().fromJson(response, TeacherSchduleResponse.class));
             }
 
             @Override
