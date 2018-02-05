@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_start_main_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    >
+    android:background="@color/colorWhite">
 
     <FrameLayout
         android:id="@+id/fl_menu_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/nb_main_tabs_container"
+        android:paddingBottom="?android:attr/actionBarSize" />
 
     <RelativeLayout
         android:id="@+id/rl_main_header"
@@ -29,25 +29,26 @@
 
         <TextView
             android:id="@+id/tv_main_title"
-            android:layout_toEndOf="@+id/iv_main_menu"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/dp5w"
-            android:layout_marginEnd="@dimen/dp5w"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp5w"
+            android:layout_marginStart="@dimen/dp5w"
+            android:layout_toEndOf="@+id/iv_main_menu"
             android:gravity="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
     <com.eightbitlab.bottomnavigationbar.BottomNavigationBar
         android:id="@+id/nb_main_tabs_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentBottom="true"
         android:background="@color/colorWhite"
         app:activeTabColor="@color/colorPrimary"
         app:inactiveTabColor="@color/colorGray" />
+
 </RelativeLayout>
