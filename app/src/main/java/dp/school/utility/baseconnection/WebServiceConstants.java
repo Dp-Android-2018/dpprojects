@@ -26,6 +26,8 @@ public class WebServiceConstants {
     public static final String PICTURES_URL = STUDENT_URL+"getPictures";
     public static final String VIDEOS_URL = STUDENT_URL+"getVideos";
     public static final String FEEDS_URL = STUDENT_URL + "getFeeds";
+    public static final String CLASSES_URL = TEACHER_URL + "getclasses";
+    public static final String SCHEDULE_URL = TEACHER_URL + "schedule";
 
     public static final String TOP_STUDENTS_URL = TEACHER_URL+"top-students/";
 }
