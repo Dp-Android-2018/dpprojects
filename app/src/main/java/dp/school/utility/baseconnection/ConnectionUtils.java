@@ -41,6 +41,7 @@ public class ConnectionUtils {
             dialog = new Dialog(connectionView.getContext(), R.style.AppTheme);
             dialog.setContentView(R.layout.dialog_loading_bar);
             try {
+                System.out.println("xyz");
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
             }catch (NullPointerException e){
                 e.getStackTrace();

@@ -26,6 +26,7 @@ public class SchedulePresenter implements SchedulePresenterIml {
 
     @Override
     public void getTeacherSchedule() {
+        System.out.println("xyz");
         ConnectionUtils.getInstance().createConnection(null, WebServiceConstants.SCHEDULE_URL, true, true, Request.Method.GET, new ConnectionView() {
             @Override
             public void onResponseSuccess(String response) {
