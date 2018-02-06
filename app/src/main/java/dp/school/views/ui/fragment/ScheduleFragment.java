@@ -48,7 +48,6 @@ public class ScheduleFragment extends Fragment implements ScheduleView {
         ButterKnife.bind(this, rootView);
         SchedulePresenterIml schedulePresenterIml = new SchedulePresenter(this);
         schedulePresenterIml.getTeacherSchedule();
-
         return rootView;
     }
 

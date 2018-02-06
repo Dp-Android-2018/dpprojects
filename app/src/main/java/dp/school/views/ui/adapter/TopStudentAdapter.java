@@ -5,14 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
-
 import dp.school.R;
-import dp.school.model.gloabal.FeedModel;
 import dp.school.model.response.topstudentsresponse.TopStudentItem;
-import dp.school.model.response.topstudentsresponse.TopStudentResponse;
-import dp.school.views.ui.holder.FeedsViewHolder;
 import dp.school.views.ui.holder.TopStudentViewHolder;
 
 

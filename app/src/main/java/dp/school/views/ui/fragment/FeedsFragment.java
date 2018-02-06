@@ -37,13 +37,10 @@ public class FeedsFragment extends Fragment implements FeedsView {
 
     View rootView;
     private JazzyRecyclerViewScrollListener jazzyScrollListener;
-
     @BindView(R.id.rv_feeds_collection)
     RecyclerView feedsRecycleView;
-
     @BindView(R.id.ll_feeds_container)
     LinearLayout llContainer;
-
     private  FeedAdapter feedAdapter;
     private ArrayList<FeedModel>feedItems;
 

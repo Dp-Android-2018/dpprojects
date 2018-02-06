@@ -80,7 +80,7 @@ public class PictureGalleryFragment extends Fragment implements MediaView{
         System.out.println("Loaded >>>>>>>");
         this.media=media.getData();
         System.out.println("Loaded :"+this.media.size());
-            notifyAdapter();
+        notifyAdapter();
 
     }
 

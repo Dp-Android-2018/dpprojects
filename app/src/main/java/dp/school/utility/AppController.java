@@ -37,7 +37,6 @@ public class AppController extends MultiDexApplication {
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(getApplicationContext());
         }
-
         return mRequestQueue;
     }
 
