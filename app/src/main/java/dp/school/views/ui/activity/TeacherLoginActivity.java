@@ -78,7 +78,7 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
     @Override
     public void onTeacherLogined(TeacherResponse teacherResponse) {
         if(teacherRequest!=null)
-        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER, teacherRequest);
+        SharedPreferenceUtils.saveObjectToSharedPreferences( SharePreferenceConstants.PREF_TEACHER, teacherRequest);
         Intent intent = new Intent(TeacherLoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
@@ -98,7 +98,7 @@ public class TeacherLoginActivity extends AppCompatActivity implements TeacherVi
         startActivity(intent);
     }
     private void autoLogin(){
-        teacherRequest = (TeacherRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_TEACHER, SharePreferenceConstants.PREF_TEACHER,TeacherRequest.class);
+        teacherRequest = (TeacherRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_TEACHER,TeacherRequest.class);
         if(teacherRequest!=null)
             teacherPresenter.onLoginTeacher(teacherRequest);
     }

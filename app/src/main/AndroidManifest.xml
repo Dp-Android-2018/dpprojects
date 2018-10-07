@@ -43,6 +43,13 @@
         <activity android:name=".views.ui.activity.ErrorActivity"></activity>
         <activity android:name=".views.ui.activity.FeedDetailsActivity"/>
         <activity android:name=".views.ui.activity.TopStudentDetailsActivity"/>
+        <activity android:name=".views.ui.activity.ClassActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

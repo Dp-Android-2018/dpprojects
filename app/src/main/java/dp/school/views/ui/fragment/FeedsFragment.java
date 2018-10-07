@@ -1,6 +1,7 @@
 package dp.school.views.ui.fragment;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,7 @@ public class FeedsFragment extends Fragment implements FeedsView {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         rootView = inflater.inflate(R.layout.activity_feeds, container, false);
         ButterKnife.bind(this,rootView);
         initializeUi();
@@ -81,7 +84,7 @@ public class FeedsFragment extends Fragment implements FeedsView {
     public void onFeedsDataLoaded(FeedsResponse feedsResponse) {
         if(feedsResponse!=null) {
             feedItems = feedsResponse.getData();
-            feedAdapter = new FeedAdapter(getActivity().getApplicationContext(), feedItems);
+            feedAdapter = new FeedAdapter(getActivity(), feedItems);
             feedsRecycleView.setAdapter(feedAdapter);
         }
     }

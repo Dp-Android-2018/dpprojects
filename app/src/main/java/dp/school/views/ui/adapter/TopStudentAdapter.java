@@ -1,11 +1,17 @@
 package dp.school.views.ui.adapter;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Interpolator;
+
 import java.util.ArrayList;
+import java.util.Random;
+
 import dp.school.R;
 import dp.school.model.response.topstudentsresponse.TopStudentItem;
 import dp.school.views.ui.holder.TopStudentViewHolder;
@@ -28,6 +34,7 @@ public class TopStudentAdapter extends RecyclerView.Adapter<TopStudentViewHolder
     @Override
     public TopStudentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_student, parent, false);
+
         TopStudentViewHolder viewHolder = new TopStudentViewHolder(v,context);
         return viewHolder;
     }

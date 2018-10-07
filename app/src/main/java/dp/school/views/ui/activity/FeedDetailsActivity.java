@@ -1,8 +1,10 @@
 package dp.school.views.ui.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.transition.TransitionInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +31,9 @@ public class FeedDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(Build.VERSION.SDK_INT>=21){
+            getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition));
+        }
         setContentView(R.layout.activity_feed_details);
         ButterKnife.bind(this);
         setDataToUi();

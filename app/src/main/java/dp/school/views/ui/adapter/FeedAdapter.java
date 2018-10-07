@@ -1,5 +1,6 @@
 package dp.school.views.ui.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,10 +22,10 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedsViewHolder> {
 
     ArrayList<FeedModel> feedItems;
     private Context context;
-
     public FeedAdapter(Context context, ArrayList<FeedModel> feedItems) {
         this.feedItems = feedItems;
         this.context=context;
+
     }
 
     @Override

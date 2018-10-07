@@ -80,7 +80,7 @@ public class ParentLoginActivity extends AppCompatActivity implements ParentView
     @Override
     public void onParentCodeValidated() {
         if(parentRequest!=null) {
-            SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_PARENT, SharePreferenceConstants.PREF_PARENT, parentRequest);
+            SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_PARENT, parentRequest);
         }
     }
 
@@ -127,7 +127,7 @@ public class ParentLoginActivity extends AppCompatActivity implements ParentView
     }
 
     private void autoLogin(){
-        parentRequest = (ParentRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_PARENT, SharePreferenceConstants.PREF_PARENT,ParentRequest.class);
+        parentRequest = (ParentRequest) SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_PARENT,ParentRequest.class);
         if(parentRequest!=null) {
             parentPresenter.onValidateParentPhone(parentRequest);
         }

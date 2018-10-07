@@ -74,7 +74,7 @@ public class FeedsActivity extends AppCompatActivity implements FeedsView{
     public void onFeedsDataLoaded(FeedsResponse feedsResponse) {
         if(feedsResponse!=null) {
             feedItems = feedsResponse.getData();
-            feedAdapter = new FeedAdapter(this, feedItems);
+            feedAdapter = new FeedAdapter(FeedsActivity.this, feedItems);
             studentsRecycleView.setAdapter(feedAdapter);
         }
     }

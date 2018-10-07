@@ -97,11 +97,11 @@ public class StudentLoginActivity extends AppCompatActivity implements StudentVi
     @Override
     public void onStudentLogined(StudentResponse studentResponse) {
         if(studentRequest!=null)
-        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_STUDENT,SharePreferenceConstants.PREF_STUDENT,studentRequest);
+        SharedPreferenceUtils.saveObjectToSharedPreferences(SharePreferenceConstants.PREF_STUDENT,studentRequest);
         Toast.makeText(this, ""+studentResponse.getUser().getImage(), Toast.LENGTH_SHORT).show();
     }
     private void autoLogin(){
-        studentRequest = (StudentRequest)SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_STUDENT, SharePreferenceConstants.PREF_STUDENT,StudentRequest.class);
+        studentRequest = (StudentRequest)SharedPreferenceUtils.getSavedObject(SharePreferenceConstants.PREF_STUDENT,StudentRequest.class);
         studentPresenter.onLoginStudent(studentRequest);
     }
 

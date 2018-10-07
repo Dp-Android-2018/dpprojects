@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 
 public class SharedPreferenceUtils {
 
-    public static  void saveObjectToSharedPreferences(String sharedPreferenceName, String savedObjectName, Object object) {
+    public static  void saveObjectToSharedPreferences(String savedObjectName, Object object) {
         SharedPreferences sharedPreferences = AppController.getContext().getSharedPreferences(
                 "SharedPreferenceDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
@@ -19,9 +19,9 @@ public class SharedPreferenceUtils {
         prefsEditor.commit();
     }
 
-    public static Object getSavedObject(String sharedPreferenceName, String savedObjectName, Class objectClass) {
+    public static Object getSavedObject(String savedObjectName, Class objectClass) {
         SharedPreferences sharedPreferences = AppController.getContext().getSharedPreferences(
-                sharedPreferenceName, Context.MODE_PRIVATE);
+                "SharedPreferenceDetails", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString(savedObjectName, "");
         return gson.fromJson(json, objectClass);
